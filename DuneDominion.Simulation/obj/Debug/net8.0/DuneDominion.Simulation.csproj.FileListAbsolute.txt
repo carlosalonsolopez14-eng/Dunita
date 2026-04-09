@@ -1,0 +1,16 @@
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\bin\Debug\net8.0\DuneDominion.Simulation.deps.json
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\bin\Debug\net8.0\DuneDominion.Simulation.dll
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\bin\Debug\net8.0\DuneDominion.Simulation.pdb
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\bin\Debug\net8.0\DuneDominion.Shared.dll
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\bin\Debug\net8.0\DuneDominion.Shared.pdb
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\obj\Debug\net8.0\DuneDominion.Simulation.csproj.AssemblyReference.cache
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\obj\Debug\net8.0\DuneDominion.Simulation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\obj\Debug\net8.0\DuneDominion.Simulation.AssemblyInfoInputs.cache
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\obj\Debug\net8.0\DuneDominion.Simulation.AssemblyInfo.cs
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\obj\Debug\net8.0\DuneDominion.Simulation.csproj.CoreCompileInputs.cache
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\obj\Debug\net8.0\DuneDominion.Simulation.sourcelink.json
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\obj\Debug\net8.0\DuneDomi.30FB64FF.Up2Date
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\obj\Debug\net8.0\DuneDominion.Simulation.dll
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\obj\Debug\net8.0\refint\DuneDominion.Simulation.dll
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\obj\Debug\net8.0\DuneDominion.Simulation.pdb
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Simulation\obj\Debug\net8.0\ref\DuneDominion.Simulation.dll

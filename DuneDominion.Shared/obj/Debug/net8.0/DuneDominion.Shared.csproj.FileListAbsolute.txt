@@ -1,0 +1,12 @@
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Shared\bin\Debug\net8.0\DuneDominion.Shared.deps.json
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Shared\bin\Debug\net8.0\DuneDominion.Shared.dll
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Shared\bin\Debug\net8.0\DuneDominion.Shared.pdb
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Shared\obj\Debug\net8.0\DuneDominion.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Shared\obj\Debug\net8.0\DuneDominion.Shared.AssemblyInfoInputs.cache
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Shared\obj\Debug\net8.0\DuneDominion.Shared.AssemblyInfo.cs
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Shared\obj\Debug\net8.0\DuneDominion.Shared.csproj.CoreCompileInputs.cache
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Shared\obj\Debug\net8.0\DuneDominion.Shared.sourcelink.json
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Shared\obj\Debug\net8.0\DuneDominion.Shared.dll
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Shared\obj\Debug\net8.0\refint\DuneDominion.Shared.dll
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Shared\obj\Debug\net8.0\DuneDominion.Shared.pdb
+C:\Users\a8t.DTOLEDO\Downloads\Dunita\DuneDominion.Shared\obj\Debug\net8.0\ref\DuneDominion.Shared.dll

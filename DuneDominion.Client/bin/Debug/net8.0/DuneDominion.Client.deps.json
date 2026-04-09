@@ -1,0 +1,73 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "DuneDominion.Client/1.0.0": {
+        "dependencies": {
+          "DuneDominion.Persistence": "1.0.0",
+          "DuneDominion.Shared": "1.0.0",
+          "DuneDominion.Simulation": "1.0.0"
+        },
+        "runtime": {
+          "DuneDominion.Client.dll": {}
+        }
+      },
+      "DuneDominion.Persistence/1.0.0": {
+        "dependencies": {
+          "DuneDominion.Shared": "1.0.0"
+        },
+        "runtime": {
+          "DuneDominion.Persistence.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "DuneDominion.Shared/1.0.0": {
+        "runtime": {
+          "DuneDominion.Shared.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "DuneDominion.Simulation/1.0.0": {
+        "dependencies": {
+          "DuneDominion.Shared": "1.0.0"
+        },
+        "runtime": {
+          "DuneDominion.Simulation.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DuneDominion.Client/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DuneDominion.Persistence/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DuneDominion.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DuneDominion.Simulation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
