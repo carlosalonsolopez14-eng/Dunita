@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canvas de Arquitectura AI - Zoo Manager</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Inter', sans-serif; }
+.glass-panel {
+background: rgba(30, 41, 59, 0.7);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.tree-line::before {
+content: '';
+position: absolute;
+left: -1rem;
+top: 1.5rem;
+width: 1rem;
+height: 1px;
+background-color: #475569;
+}
+.tree-item { position: relative; }
+.tree-item::after {
+content: '';
+position: absolute;
+left: -1rem;
+top: 0;
+width: 1px;
+height: 100%;
+background-color: #475569;
+}
+.tree-item:last-child::after { height: 1.5rem; }
+</style>
+</head>
+<body class="bg-slate-900 text-slate-200 min-h-screen p-4 md:p-8">
+
+<div class="max-w-7xl mx-auto space-y-12">
+
+<!-- HEADER -->
+<header class="text-center space-y-4">
+<h1 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400">
+Arquitectura Multi-Agente IA
+</h1>
+<p class="text-slate-400 text-lg">Sistema de Orquestación para Simulador de Gestión (Zoo/Parque)</p>
+</header>
+
+<!-- DIAGRAMA PRINCIPAL -->
+<section class="glass-panel rounded-2xl p-6 md:p-8">
+<h2 class="text-2xl font-semibold mb-8 text-center text-white border-b border-slate-700 pb-4">Jerarquía del Sistema</h2>
+
+<div class="flex flex-col items-center">
+<!-- Orchestrator -->
+<div class="bg-indigo-600/20 border border-indigo-500 rounded-xl p-4 w-64 text-center shadow-[0_0_15px_rgba(79,70,229,0.3)] z-10 relative">
+<div class="text-3xl mb-2">🏛️</div>
+<h3 class="font-bold text-indigo-300">AGENTE ORQUESTADOR</h3>
+<p class="text-xs text-indigo-200/70 mt-1">(GameState + Turn + Map)</p>
+</div>
+
+<!-- Lines -->
+<div class="w-px h-8 bg-indigo-500"></div>
+<div class="w-full max-w-4xl h-px bg-indigo-500 relative">
+<div class="absolute left-0 w-px h-8 bg-indigo-500 top-0"></div>
+<div class="absolute left-1/2 w-px h-8 bg-indigo-500 top-0"></div>
+<div class="absolute right-0 w-px h-8 bg-indigo-500 top-0"></div>
+</div>
+
+<!-- Tier 1 Agents -->
+<div class="flex justify-between w-full max-w-4xl mt-8">
+<div class="bg-emerald-600/20 border border-emerald-500 rounded-xl p-4 w-48 text-center relative">
+<div class="absolute top-[-2rem] left-1/2 w-px h-8 bg-indigo-500"></div>
+<div class="text-2xl mb-1">🐾</div>
+<h3 class="font-bold text-emerald-300 text-sm">AGENTE ANIMALES</h3>
+<p class="text-[10px] text-emerald-200/70">(Jaulas, Vida)</p>
+<!-- Line down -->
+<div class="absolute bottom-[-2rem] left-1/2 w-px h-8 bg-slate-600"></div>
+</div>
+<div class="bg-amber-600/20 border border-amber-500 rounded-xl p-4 w-48 text-center relative">
+<div class="absolute top-[-2rem] left-1/2 w-px h-8 bg-indigo-500"></div>
+<div class="text-2xl mb-1">🏗️</div>
+<h3 class="font-bold text-amber-300 text-sm">AGENTE CONSTRUCCIÓN</h3>
+<p class="text-[10px] text-amber-200/70">(Edificios, Tiendas)</p>
+<!-- Line down -->
+<div class="absolute bottom-[-2rem] left-1/2 w-px h-8 bg-slate-600"></div>
+</div>
+<div class="bg-cyan-600/20 border border-cyan-500 rounded-xl p-4 w-48 text-center relative">
+<div class="absolute top-[-2rem] left-1/2 w-px h-8 bg-indigo-500"></div>
+<div class="text-2xl mb-1">🗺️</div>
+<h3 class="font-bold text-cyan-300 text-sm">AGENTE MAPAS</h3>
+<p class="text-[10px] text-cyan-200/70">(3 Territorios)</p>
+<!-- Line down -->
+<div class="absolute bottom-[-2rem] left-1/2 w-px h-8 bg-slate-600"></div>
+</div>
+</div>
+
+<!-- Tier 2 Agents -->
+<div class="flex justify-between w-full max-w-4xl mt-8">
+<div class="bg-pink-600/20 border border-pink-500 rounded-xl p-4 w-48 text-center">
+<div class="text-2xl mb-1">👥</div>
+<h3 class="font-bold text-pink-300 text-sm">AGENTE VISITANTES</h3>
+<p class="text-[10px] text-pink-200/70">(Pagos, Tours)</p>
+</div>
+<div class="bg-yellow-600/20 border border-yellow-500 rounded-xl p-4 w-48 text-center">
+<div class="text-2xl mb-1">💰</div>
+<h3 class="font-bold text-yellow-300 text-sm">AGENTE ECONOMÍA</h3>
+<p class="text-[10px] text-yellow-200/70">(Tienda, $)</p>
+</div>
+<div class="bg-red-600/20 border border-red-500 rounded-xl p-4 w-48 text-center">
+<div class="text-2xl mb-1">🎲</div>
+<h3 class="font-bold text-red-300 text-sm">AGENTE EVENTOS</h3>
+<p class="text-[10px] text-red-200/70">(Aleatorios)</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- DETALLE DE AGENTES GRID -->
+<h2 class="text-3xl font-bold text-white mt-12 mb-6 flex items-center gap-3">
+<span class="bg-slate-800 p-2 rounded-lg">🤖</span> Detalle Completo de Agentes
+</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+<!-- 1. Orquestador -->
+<div class="glass-panel rounded-xl p-6 border-t-4 border-t-indigo-500 flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<span class="text-3xl">🏛️</span>
+<h3 class="text-xl font-bold text-indigo-300">1. Agente Orquestador</h3>
+</div>
+<div class="overflow-x-auto mt-auto">
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-slate-400 uppercase bg-slate-800/50">
+<tr><th class="px-2 py-2">#</th><th class="px-2 py-2">Tarea</th><th class="px-2 py-2">Descripción</th></tr>
+</thead>
+<tbody class="divide-y divide-slate-700/50">
+<tr><td class="px-2 py-2 text-slate-500">1</td><td class="px-2 py-2 font-mono text-indigo-200">inicializar_juego</td><td class="px-2 py-2 text-xs">Carga contexto + mapa seleccionado</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">2</td><td class="px-2 py-2 font-mono text-indigo-200">seleccionar_mapa</td><td class="px-2 py-2 text-xs">Cambia territorio activo</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">3</td><td class="px-2 py-2 font-mono text-indigo-200">ejecutar_ronda</td><td class="px-2 py-2 text-xs">Orquesta las 5 fases</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">4</td><td class="px-2 py-2 font-mono text-indigo-200">verificar_estado</td><td class="px-2 py-2 text-xs">Fin partida, unlock mapa siguiente</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">5</td><td class="px-2 py-2 font-mono text-indigo-200">reportar_resumen</td><td class="px-2 py-2 text-xs">Log visual del turno</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- 2. Mapas -->
+<div class="glass-panel rounded-xl p-6 border-t-4 border-t-cyan-500 flex flex-col">
+<div class="flex items-center gap-3 mb-2">
+<span class="text-3xl">🗺️</span>
+<h3 class="text-xl font-bold text-cyan-300">2. Agente Mapas</h3>
+</div>
+<p class="text-xs text-slate-400 mb-4">Rol: Gestiona 3 territorios con animales únicos</p>
+<div class="mb-4">
+<p class="text-xs font-bold text-slate-300 mb-2 uppercase">Herramientas:</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-cyan-900/50 text-cyan-200 text-xs rounded border border-cyan-700/50">map_registry</span>
+<span class="px-2 py-1 bg-cyan-900/50 text-cyan-200 text-xs rounded border border-cyan-700/50">territory_config</span>
+<span class="px-2 py-1 bg-cyan-900/50 text-cyan-200 text-xs rounded border border-cyan-700/50">unlock_validator</span>
+</div>
+</div>
+<div class="overflow-x-auto mt-auto">
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-slate-400 uppercase bg-slate-800/50">
+<tr><th class="px-2 py-2">#</th><th class="px-2 py-2">Tarea</th><th class="px-2 py-2">Descripción</th></tr>
+</thead>
+<tbody class="divide-y divide-slate-700/50">
+<tr><td class="px-2 py-2 text-slate-500">1</td><td class="px-2 py-2 font-mono text-cyan-200">cargar_mapa</td><td class="px-2 py-2 text-[11px]">Instancia territorio</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">2</td><td class="px-2 py-2 font-mono text-cyan-200">obt_animales_disp</td><td class="px-2 py-2 text-[11px]">Lista según mapa</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">3</td><td class="px-2 py-2 font-mono text-cyan-200">obt_condiciones</td><td class="px-2 py-2 text-[11px]">Clima, buffs</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">4</td><td class="px-2 py-2 font-mono text-cyan-200">verificar_unlock</td><td class="px-2 py-2 text-[11px]">Desbloquear sig.</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">5</td><td class="px-2 py-2 font-mono text-cyan-200">resetear_mapa</td><td class="px-2 py-2 text-[11px]">Reiniciar</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- 3. Construcción -->
+<div class="glass-panel rounded-xl p-6 border-t-4 border-t-amber-500 flex flex-col">
+<div class="flex items-center gap-3 mb-2">
+<span class="text-3xl">🏗️</span>
+<h3 class="text-xl font-bold text-amber-300">3. Ag. Construcción</h3>
+</div>
+<p class="text-xs text-slate-400 mb-4">Rol: Sistema de construcción de edificios</p>
+<div class="mb-4">
+<p class="text-xs font-bold text-slate-300 mb-2 uppercase">Herramientas:</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-amber-900/50 text-amber-200 text-xs rounded border border-amber-700/50">building_catalog</span>
+<span class="px-2 py-1 bg-amber-900/50 text-amber-200 text-xs rounded border border-amber-700/50">slot_manager</span>
+<span class="px-2 py-1 bg-amber-900/50 text-amber-200 text-xs rounded border border-amber-700/50">upgrade_engine</span>
+<span class="px-2 py-1 bg-amber-900/50 text-amber-200 text-xs rounded border border-amber-700/50">cost_calc</span>
+</div>
+</div>
+<div class="overflow-x-auto mt-auto">
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-slate-400 uppercase bg-slate-800/50">
+<tr><th class="px-2 py-2">#</th><th class="px-2 py-2">Tarea</th><th class="px-2 py-2">Descripción</th></tr>
+</thead>
+<tbody class="divide-y divide-slate-700/50">
+<tr><td class="px-2 py-2 text-slate-500">1</td><td class="px-2 py-2 font-mono text-amber-200">construir_edificio</td><td class="px-2 py-2 text-[11px]">Crea en mapa</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">2</td><td class="px-2 py-2 font-mono text-amber-200">demoler_edificio</td><td class="px-2 py-2 text-[11px]">Elimina/reembolso</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">3</td><td class="px-2 py-2 font-mono text-amber-200">mejorar_edificio</td><td class="px-2 py-2 text-[11px]">Sube nivel 2→5</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">4</td><td class="px-2 py-2 font-mono text-amber-200">obtener_slots</td><td class="px-2 py-2 text-[11px]">Ver espacios</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">5</td><td class="px-2 py-2 font-mono text-amber-200">verificar_reqs</td><td class="px-2 py-2 text-[11px]">Check materiales</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">6</td><td class="px-2 py-2 font-mono text-amber-200">reparar_edificio</td><td class="px-2 py-2 text-[11px]">Coste vs eventos</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- 4. Animales -->
+<div class="glass-panel rounded-xl p-6 border-t-4 border-t-emerald-500 flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<span class="text-3xl">🐾</span>
+<h3 class="text-xl font-bold text-emerald-300">4. Agente Animales</h3>
+</div>
+<div class="mb-4">
+<p class="text-xs font-bold text-slate-300 mb-2 uppercase">Herramientas:</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-emerald-900/50 text-emerald-200 text-xs rounded border border-emerald-700/50">animal_registry</span>
+<span class="px-2 py-1 bg-emerald-900/50 text-emerald-200 text-xs rounded border border-emerald-700/50">cage_manager</span>
+<span class="px-2 py-1 bg-emerald-900/50 text-emerald-200 text-xs rounded border border-emerald-700/50">supply_consumer</span>
+<span class="px-2 py-1 bg-emerald-900/50 text-emerald-200 text-xs rounded border border-emerald-700/50">life_cycle_handler</span>
+</div>
+</div>
+<div class="overflow-x-auto mt-auto">
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-slate-400 uppercase bg-slate-800/50">
+<tr><th class="px-2 py-2">#</th><th class="px-2 py-2">Tarea</th><th class="px-2 py-2">Descripción</th></tr>
+</thead>
+<tbody class="divide-y divide-slate-700/50">
+<tr><td class="px-2 py-2 text-slate-500">1</td><td class="px-2 py-2 font-mono text-emerald-200">actualizar_vida</td><td class="px-2 py-2 text-[11px]">-vida por hambre</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">2</td><td class="px-2 py-2 font-mono text-emerald-200">alimentar_anim</td><td class="px-2 py-2 text-[11px]">Consume items</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">3</td><td class="px-2 py-2 font-mono text-emerald-200">asignar_recinto</td><td class="px-2 py-2 text-[11px]">Ubica en edificio</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">4</td><td class="px-2 py-2 font-mono text-emerald-200">aplicar_enfermedad</td><td class="px-2 py-2 text-[11px]">Evento negativo</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">5</td><td class="px-2 py-2 font-mono text-emerald-200">reproducir_anim</td><td class="px-2 py-2 text-[11px]">Crías si hay espacio</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">6</td><td class="px-2 py-2 font-mono text-emerald-200">matar_animal</td><td class="px-2 py-2 text-[11px]">Muerte/limpieza</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- 5. Visitantes -->
+<div class="glass-panel rounded-xl p-6 border-t-4 border-t-pink-500 flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<span class="text-3xl">👥</span>
+<h3 class="text-xl font-bold text-pink-300">5. Agente Visitantes</h3>
+</div>
+<div class="mb-4">
+<p class="text-xs font-bold text-slate-300 mb-2 uppercase">Herramientas:</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-pink-900/50 text-pink-200 text-xs rounded border border-pink-700/50">visitor_generator</span>
+<span class="px-2 py-1 bg-pink-900/50 text-pink-200 text-xs rounded border border-pink-700/50">payment_calc</span>
+<span class="px-2 py-1 bg-pink-900/50 text-pink-200 text-xs rounded border border-pink-700/50">satisfaction_engine</span>
+<span class="px-2 py-1 bg-pink-900/50 text-pink-200 text-xs rounded border border-pink-700/50">shop_interaction</span>
+</div>
+</div>
+<div class="overflow-x-auto mt-auto">
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-slate-400 uppercase bg-slate-800/50">
+<tr><th class="px-2 py-2">#</th><th class="px-2 py-2">Tarea</th><th class="px-2 py-2">Descripción</th></tr>
+</thead>
+<tbody class="divide-y divide-slate-700/50">
+<tr><td class="px-2 py-2 text-slate-500">1</td><td class="px-2 py-2 font-mono text-pink-200">generar_visitantes</td><td class="px-2 py-2 text-[11px]">Base mapa + bonus</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">2</td><td class="px-2 py-2 font-mono text-pink-200">calcular_pago</td><td class="px-2 py-2 text-[11px]">Base + bonus bldgs</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">3</td><td class="px-2 py-2 font-mono text-pink-200">aplicar_satisfacc</td><td class="px-2 py-2 text-[11px]">Mods clínica/show</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">4</td><td class="px-2 py-2 font-mono text-pink-200">dar_propina</td><td class="px-2 py-2 text-[11px]">Probabilístico</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">5</td><td class="px-2 py-2 font-mono text-pink-200">evaluar_recorrido</td><td class="px-2 py-2 text-[11px]">Shows y tiendas</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- 6. Economía -->
+<div class="glass-panel rounded-xl p-6 border-t-4 border-t-yellow-500 flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<span class="text-3xl">💰</span>
+<h3 class="text-xl font-bold text-yellow-300">6. Agente Economía</h3>
+</div>
+<div class="mb-4">
+<p class="text-xs font-bold text-slate-300 mb-2 uppercase">Herramientas:</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-yellow-900/50 text-yellow-200 text-xs rounded border border-yellow-700/50">store_catalog</span>
+<span class="px-2 py-1 bg-yellow-900/50 text-yellow-200 text-xs rounded border border-yellow-700/50">balance_tracker</span>
+<span class="px-2 py-1 bg-yellow-900/50 text-yellow-200 text-xs rounded border border-yellow-700/50">maintenance_calc</span>
+<span class="px-2 py-1 bg-yellow-900/50 text-yellow-200 text-xs rounded border border-yellow-700/50">transaction_logger</span>
+</div>
+</div>
+<div class="overflow-x-auto mt-auto">
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-slate-400 uppercase bg-slate-800/50">
+<tr><th class="px-2 py-2">#</th><th class="px-2 py-2">Tarea</th><th class="px-2 py-2">Descripción</th></tr>
+</thead>
+<tbody class="divide-y divide-slate-700/50">
+<tr><td class="px-2 py-2 text-slate-500">1</td><td class="px-2 py-2 font-mono text-yellow-200">comprar_animal</td><td class="px-2 py-2 text-[11px]">Catálogo mapa</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">2</td><td class="px-2 py-2 font-mono text-yellow-200">comprar_sumin</td><td class="px-2 py-2 text-[11px]">Comida/medicinas</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">3</td><td class="px-2 py-2 font-mono text-yellow-200">construir_tienda</td><td class="px-2 py-2 text-[11px]">Llama Ag. Construc.</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">4</td><td class="px-2 py-2 font-mono text-yellow-200">pagar_mantenim</td><td class="px-2 py-2 text-[11px]">Costes diarios</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">5</td><td class="px-2 py-2 font-mono text-yellow-200">actualizar_balance</td><td class="px-2 py-2 text-[11px]">Ingresos-gastos</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">6</td><td class="px-2 py-2 font-mono text-yellow-200">vender_animal</td><td class="px-2 py-2 text-[11px]">A comerciantes</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- 7. Eventos (Ocupa 2 cols o centro si sobra) -->
+<div class="glass-panel rounded-xl p-6 border-t-4 border-t-red-500 flex flex-col md:col-span-2 xl:col-span-3">
+<div class="flex items-center gap-3 mb-4">
+<span class="text-3xl">🎲</span>
+<h3 class="text-xl font-bold text-red-300">7. Agente Eventos</h3>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+<div class="overflow-x-auto">
+<p class="text-xs font-bold text-slate-300 mb-2 uppercase">Tareas:</p>
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-slate-400 uppercase bg-slate-800/50">
+<tr><th class="px-2 py-2">#</th><th class="px-2 py-2">Tarea</th><th class="px-2 py-2">Descripción</th></tr>
+</thead>
+<tbody class="divide-y divide-slate-700/50">
+<tr><td class="px-2 py-2 text-slate-500">1</td><td class="px-2 py-2 font-mono text-red-200">tirar_evento</td><td class="px-2 py-2 text-xs">30% cada N rondas</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">2</td><td class="px-2 py-2 font-mono text-red-200">aplicar_suerte</td><td class="px-2 py-2 text-xs">Buffs (-consumo, +pagos, +propinas)</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">3</td><td class="px-2 py-2 font-mono text-red-200">aplicar_mala_suerte</td><td class="px-2 py-2 text-xs">Daño, enfermedad, catástrofes</td></tr>
+<tr><td class="px-2 py-2 text-slate-500">4</td><td class="px-2 py-2 font-mono text-red-200">evento_especial_mapa</td><td class="px-2 py-2 text-xs">Bonus único por territorio</td></tr>
+</tbody>
+</table>
+</div>
+<div class="overflow-x-auto">
+<p class="text-xs font-bold text-slate-300 mb-2 uppercase">Eventos por Mapa:</p>
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-slate-400 uppercase bg-slate-800/50">
+<tr><th class="px-2 py-2">Mapa</th><th class="px-2 py-2">Suerte (Buff)</th><th class="px-2 py-2">Mala Suerte (Nerf)</th></tr>
+</thead>
+<tbody class="divide-y divide-slate-700/50">
+<tr>
+<td class="px-2 py-2">🏝️ Selva</td>
+<td class="px-2 py-2 text-emerald-300">"Temporada alta" (+50% visitantes)</td>
+<td class="px-2 py-2 text-red-300">"Lluvia ácida" (-20% vida animales)</td>
+</tr>
+<tr>
+<td class="px-2 py-2">🏜️ Sabana</td>
+<td class="px-2 py-2 text-emerald-300">"Safari photo" (propinas x3)</td>
+<td class="px-2 py-2 text-red-300">"Sequía" (x2 consumo suministros)</td>
+</tr>
+<tr>
+<td class="px-2 py-2">❄️ Tundra</td>
+<td class="px-2 py-2 text-emerald-300">"Festival ártico" (+100$/visitante)</td>
+<td class="px-2 py-2 text-red-300">"Tormenta" (requiere reparación)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- CATÁLOGOS Y CONFIGURACIONES (Tablas Extra) -->
+<h2 class="text-3xl font-bold text-white mt-12 mb-6 flex items-center gap-3">
+<span class="bg-slate-800 p-2 rounded-lg">📋</span> Catálogos y Configuraciones
+</h2>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Tabla Mapas -->
+<div class="glass-panel rounded-xl p-6">
+<h3 class="text-lg font-bold text-cyan-300 mb-4 border-b border-slate-700 pb-2">Catálogo de Mapas</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-slate-400 uppercase bg-slate-800/50">
+<tr><th class="px-3 py-2">Mapa</th><th class="px-3 py-2">Animales</th><th class="px-3 py-2">Dificultad</th></tr>
+</thead>
+<tbody class="divide-y divide-slate-700/50">
+<tr>
+<td class="px-3 py-3">🏝️ Selva Tropical</td>
+<td class="px-3 py-3 text-xs text-slate-300">Mono, Tucán, Jaguar, Rana, Serpiente</td>
+<td class="px-3 py-3"><span class="px-2 py-1 bg-green-500/20 text-green-300 rounded text-xs">Fácil</span></td>
+</tr>
+<tr>
+<td class="px-3 py-3">🏜️ Sabana Africana</td>
+<td class="px-3 py-3 text-xs text-slate-300">León, Elefante, Jirafa, Rinoceronte, Cebra</td>
+<td class="px-3 py-3"><span class="px-2 py-1 bg-yellow-500/20 text-yellow-300 rounded text-xs">Medio</span></td>
+</tr>
+<tr>
+<td class="px-3 py-3">❄️ Tundra Ártica</td>
+<td class="px-3 py-3 text-xs text-slate-300">Oso Polar, Pingüino, Foca, Lobo Ártico, Búho</td>
+<td class="px-3 py-3"><span class="px-2 py-1 bg-red-500/20 text-red-300 rounded text-xs">Difícil</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- Tabla Edificios -->
+<div class="glass-panel rounded-xl p-6">
+<h3 class="text-lg font-bold text-amber-300 mb-4 border-b border-slate-700 pb-2">Tipos de Edificios</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-slate-400 uppercase bg-slate-800/50">
+<tr><th class="px-3 py-2">Tipo</th><th class="px-3 py-2">Efecto</th><th class="px-3 py-2">Coste Base</th></tr>
+</thead>
+<tbody class="divide-y divide-slate-700/50">
+<tr><td class="px-3 py-2">🦁 Recinto Básico</td><td class="px-3 py-2 text-xs">Aloja 1 animal</td><td class="px-3 py-2 text-yellow-400">500$</td></tr>
+<tr><td class="px-3 py-2">🦁 Recinto Premium</td><td class="px-3 py-2 text-xs">Aloja 3 animales</td><td class="px-3 py-2 text-yellow-400">1500$</td></tr>
+<tr><td class="px-3 py-2">🏪 Tienda Souvenirs</td><td class="px-3 py-2 text-xs">+50$/visitante</td><td class="px-3 py-2 text-yellow-400">800$</td></tr>
+<tr><td class="px-3 py-2">🍦 Heladería</td><td class="px-3 py-2 text-xs">+30$/visitante</td><td class="px-3 py-2 text-yellow-400">600$</td></tr>
+<tr><td class="px-3 py-2">🎪 Show Animales</td><td class="px-3 py-2 text-xs">+100$/ronda</td><td class="px-3 py-2 text-yellow-400">2000$</td></tr>
+<tr><td class="px-3 py-2">🏥 Clínica Veterinaria</td><td class="px-3 py-2 text-xs">-20% mortalidad</td><td class="px-3 py-2 text-yellow-400">1200$</td></tr>
+<tr><td class="px-3 py-2">🚽 Baño Público</td><td class="px-3 py-2 text-xs">+10 satisfacción</td><td class="px-3 py-2 text-yellow-400">300$</td></tr>
+<tr><td class="px-3 py-2">🎢 Atracción</td><td class="px-3 py-2 text-xs">+200$/ronda</td><td class="px-3 py-2 text-yellow-400">3000$</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- FLUJO COMPLETO DE UNA RONDA -->
+<h2 class="text-3xl font-bold text-white mt-12 mb-6 flex items-center gap-3">
+<span class="bg-slate-800 p-2 rounded-lg">⏱️</span> Flujo Completo de una Ronda
+</h2>
+
+<div class="glass-panel rounded-xl p-8">
+<!-- Etiqueta Inicio -->
+<div class="bg-indigo-600 border border-indigo-400 rounded-lg p-3 inline-block font-bold shadow-lg mb-6 text-white">
+INICIO RONDA N <br> <span class="text-sm font-normal">Mapa: [Selva/Sabana/Tundra]</span>
+</div>
+
+<!-- Stepper Vertical -->
+<div class="relative pl-8 md:pl-10 space-y-8 before:absolute before:inset-0 before:ml-[1.2rem] md:before:ml-[1.65rem] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-indigo-500 before:to-emerald-500">
+
+<!-- Fase 1 -->
+<div class="relative">
+<div class="absolute left-[-2.65rem] bg-slate-900 border-4 border-red-500 h-6 w-6 rounded-full top-1"></div>
+<div class="bg-slate-800 border border-slate-600 rounded-lg p-4 shadow-md ml-4 hover:-translate-y-1 transition-transform">
+<h4 class="text-red-400 font-bold text-lg mb-2 flex items-center gap-2">🎲 FASE 1: EVENTOS <span class="text-xs text-slate-400 font-normal">(Agente Eventos)</span></h4>
+<ul class="list-disc list-inside text-sm text-slate-300">
+<li>¿Evento aleatorio? → Aplicar según mapa</li>
+</ul>
+</div>
+</div>
+
+<!-- Fase 2 -->
+<div class="relative">
+<div class="absolute left-[-2.65rem] bg-slate-900 border-4 border-emerald-500 h-6 w-6 rounded-full top-1"></div>
+<div class="bg-slate-800 border border-slate-600 rounded-lg p-4 shadow-md ml-4 hover:-translate-y-1 transition-transform">
+<h4 class="text-emerald-400 font-bold text-lg mb-2 flex items-center gap-2">🐾 FASE 2: ANIMALES <span class="text-xs text-slate-400 font-normal">(Agente Animales)</span></h4>
+<ul class="list-disc list-inside text-sm text-slate-300">
+<li>-vida por hambre</li>
+<li>Consumir suministros (recintos)</li>
+<li>¿Muerto? → Limpiar slot</li>
+</ul>
+</div>
+</div>
+
+<!-- Fase 3 -->
+<div class="relative">
+<div class="absolute left-[-2.65rem] bg-slate-900 border-4 border-pink-500 h-6 w-6 rounded-full top-1"></div>
+<div class="bg-slate-800 border border-slate-600 rounded-lg p-4 shadow-md ml-4 hover:-translate-y-1 transition-transform">
+<h4 class="text-pink-400 font-bold text-lg mb-2 flex items-center gap-2">👥 FASE 3: VISITANTES <span class="text-xs text-slate-400 font-normal">(Agente Visitantes)</span></h4>
+<ul class="list-disc list-inside text-sm text-slate-300">
+<li>Generar visitantes (base mapa + bonus)</li>
+<li>Calcular pagos + bonus edificios (tiendas/shows)</li>
+<li>Satisfacción (clínica, baños, shows)</li>
+</ul>
+</div>
+</div>
+
+<!-- Fase 4 -->
+<div class="relative">
+<div class="absolute left-[-2.65rem] bg-slate-900 border-4 border-yellow-500 h-6 w-6 rounded-full top-1"></div>
+<div class="bg-slate-800 border border-slate-600 rounded-lg p-4 shadow-md ml-4 hover:-translate-y-1 transition-transform">
+<h4 class="text-yellow-400 font-bold text-lg mb-2 flex items-center gap-2">💰 FASE 4: ECONOMÍA <span class="text-xs text-slate-400 font-normal">(Agente Economía)</span></h4>
+<ul class="list-disc list-inside text-sm text-slate-300">
+<li>+Ingresos visitantes</li>
+<li>+Ingresos pasivos (atracciones, shows)</li>
+<li>-Mantenimiento edificios</li>
+<li>-Consumo suministros</li>
+</ul>
+</div>
+</div>
+
+<!-- Fase 5 -->
+<div class="relative">
+<div class="absolute left-[-2.65rem] bg-slate-900 border-4 border-amber-500 h-6 w-6 rounded-full top-1"></div>
+<div class="bg-slate-800 border border-slate-600 rounded-lg p-4 shadow-md ml-4 hover:-translate-y-1 transition-transform">
+<h4 class="text-amber-400 font-bold text-lg mb-2 flex items-center gap-2">🏗️ FASE 5: CONSTRUCCIÓN <span class="text-xs text-slate-400 font-normal">(Ag. Construcción)</span></h4>
+<ul class="list-disc list-inside text-sm text-slate-300">
+<li>¿Jugador construyó/demolió/mejoró? → Procesar</li>
+<li>¿Evento dañó edificios? → Reparar auto o manual</li>
+</ul>
+</div>
+</div>
+
+<!-- Fase 6 -->
+<div class="relative">
+<div class="absolute left-[-2.65rem] bg-slate-900 border-4 border-indigo-500 h-6 w-6 rounded-full top-1"></div>
+<div class="bg-slate-800 border border-slate-600 rounded-lg p-4 shadow-md ml-4 hover:-translate-y-1 transition-transform">
+<h4 class="text-indigo-400 font-bold text-lg mb-2 flex items-center gap-2">🏛️ FASE 6: ORQUESTADOR <span class="text-xs text-slate-400 font-normal">(Cierre)</span></h4>
+<ul class="list-disc list-inside text-sm text-slate-300">
+<li>¿Mapa completado? → Desbloquear siguiente</li>
+<li>Verificar fin de partida</li>
+<li>Guardar estado</li>
+<li>Reportar resumen</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<!-- RESUMEN FINAL & CLASES -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pb-12">
+
+<!-- Resumen 7 Agentes -->
+<div class="glass-panel rounded-xl p-6">
+<h3 class="text-xl font-bold text-white mb-4 border-b border-slate-700 pb-2">📊 Resumen Final - 7 Agentes</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-slate-400 uppercase bg-slate-800/50">
+<tr><th class="px-2 py-2">Agente</th><th class="px-2 py-2 text-center">Tareas</th><th class="px-2 py-2 text-center">Tools</th><th class="px-2 py-2">Dependencias</th></tr>
+</thead>
+<tbody class="divide-y divide-slate-700/50">
+<tr><td class="px-2 py-2 font-semibold text-indigo-300">Orquestador</td><td class="px-2 py-2 text-center">5</td><td class="px-2 py-2 text-center">4</td><td class="px-2 py-2 text-xs">Coordina a todos</td></tr>
+<tr><td class="px-2 py-2 font-semibold text-cyan-300">Mapas</td><td class="px-2 py-2 text-center">5</td><td class="px-2 py-2 text-center">3</td><td class="px-2 py-2 text-xs">Alimenta Animales, Visitantes, Eventos</td></tr>
+<tr><td class="px-2 py-2 font-semibold text-emerald-300">Animales</td><td class="px-2 py-2 text-center">6</td><td class="px-2 py-2 text-center">4</td><td class="px-2 py-2 text-xs">Requiere Recintos (Construcción)</td></tr>
+<tr><td class="px-2 py-2 font-semibold text-amber-300">Construcción</td><td class="px-2 py-2 text-center">6</td><td class="px-2 py-2 text-center">4</td><td class="px-2 py-2 text-xs">Provee recintos a Animales</td></tr>
+<tr><td class="px-2 py-2 font-semibold text-pink-300">Visitantes</td><td class="px-2 py-2 text-center">5</td><td class="px-2 py-2 text-center">4</td><td class="px-2 py-2 text-xs">Alimentado por Mapa</td></tr>
+<tr><td class="px-2 py-2 font-semibold text-yellow-300">Economía</td><td class="px-2 py-2 text-center">6</td><td class="px-2 py-2 text-center">4</td><td class="px-2 py-2 text-xs">Paga Construcción</td></tr>
+<tr><td class="px-2 py-2 font-semibold text-red-300">Eventos</td><td class="px-2 py-2 text-center">4</td><td class="px-2 py-2 text-center">4</td><td class="px-2 py-2 text-xs">Afecta a todos</td></tr>
+<tr class="bg-slate-800/80 font-bold"><td class="px-2 py-2 text-white">TOTAL</td><td class="px-2 py-2 text-center text-emerald-400">37</td><td class="px-2 py-2 text-center text-cyan-400">~27</td><td class="px-2 py-2">—</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- Domain Classes -->
+<div class="glass-panel rounded-xl p-6">
+<h3 class="text-xl font-bold text-white mb-4 border-b border-slate-700 pb-2">🧩 Clases Compartidas (Globales)</h3>
+<div class="font-mono text-sm bg-slate-900 p-4 rounded-lg text-slate-300 border border-slate-700 overflow-x-auto">
+<div class="text-indigo-400 mb-2">Domain/</div>
+
+<div class="pl-4 tree-item text-emerald-400">Entities/</div>
+<div class="pl-12 tree-line text-slate-400">├── <span class="text-emerald-200">Animal.cs</span> <span class="text-slate-500 text-xs">(id, tipo, vida, hambre, recintoId)</span></div>
+<div class="pl-12 tree-line text-slate-400">├── <span class="text-emerald-200">Recinto.cs</span> <span class="text-slate-500 text-xs">(id, nivel, tipo, animalIds[])</span></div>
+<div class="pl-12 tree-line text-slate-400">├── <span class="text-emerald-200">Edificio.cs</span> <span class="text-slate-500 text-xs">(id, tipo, nivel, slots)</span></div>
+<div class="pl-12 tree-line text-slate-400">├── <span class="text-emerald-200">Visitante.cs</span> <span class="text-slate-500 text-xs">(id, satisfaccion, pagos)</span></div>
+<div class="pl-12 tree-line text-slate-400 mb-2">└── <span class="text-emerald-200">Mapa.cs</span> <span class="text-slate-500 text-xs">(nombre, animales[], eventos[])</span></div>
+
+<div class="pl-4 tree-item text-cyan-400">ValueObjects/</div>
+<div class="pl-12 tree-line text-slate-400">├── <span class="text-cyan-200">Dinero.cs</span> <span class="text-slate-500 text-xs">(monto, moneda)</span></div>
+<div class="pl-12 tree-line text-slate-400">├── <span class="text-cyan-200">Posicion.cs</span> <span class="text-slate-500 text-xs">(x, y, mapaId)</span></div>
+<div class="pl-12 tree-line text-slate-400 mb-2">└── <span class="text-cyan-200">Slot.cs</span> <span class="text-slate-500 text-xs">(tipo, ocupado, edificioId)</span></div>
+
+<div class="pl-4 tree-item text-red-400">Events/</div>
+<div class="pl-12 tree-line text-slate-400">├── <span class="text-red-200">GameEvent.cs</span> <span class="text-slate-500 text-xs">(tipo, parametros, rondas)</span></div>
+<div class="pl-12 tree-line text-slate-400">└── <span class="text-red-200">BuildingEvent.cs</span> <span class="text-slate-500 text-xs">(daño, reparacion)</span></div>
+</div>
+<p class="text-xs text-slate-400 mt-4 text-center">
+Total: 7 agentes con roles bien definidos y comunicación via Event Bus.
+</p>
+</div>
+</div>
+
+</div>
+</body>
+</html>
