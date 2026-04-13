@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dunita - Dune Dominion Multi-Agent Simulator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200 min-h-screen">
+
+    <!-- Header -->
+    <header class="hero-bg py-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400 mb-4">
+                DUNITA
+            </h1>
+            <p class="text-xl text-slate-400 mb-8">Dune Dominion Multi-Agent Simulator</p>
+            <p class="text-lg text-slate-300 max-w-3xl mx-auto">
+                Un simulador de gestión de zoológico/parque temático ambientado en el universo de Dune,
+                construido con arquitectura multi-agente para una simulación realista y modular.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-16 space-y-16">
+
+        <!-- Project Overview -->
+        <section class="glass-panel rounded-2xl p-8">
+            <h2 class="text-3xl font-bold mb-6 text-center text-white">Visión General del Proyecto</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-emerald-400 mb-4">Arquitectura Multi-Agente</h3>
+                    <p class="text-slate-300 mb-4">
+                        El proyecto implementa una arquitectura jerárquica de agentes IA especializados:
+                    </p>
+                    <ul class="list-disc list-inside text-slate-300 space-y-2">
+                        <li><strong>Orquestador Principal:</strong> Coordina todo el sistema</li>
+                        <li><strong>Agente de Animales:</strong> Gestiona ciclo de vida de criaturas</li>
+                        <li><strong>Agente de Construcción:</strong> Maneja instalaciones y monetización</li>
+                        <li><strong>Agente de Mapas:</strong> Controla enclaves y territorio</li>
+                        <li><strong>Agente de Persistencia:</strong> Gestiona guardado y carga</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-cyan-400 mb-4">Características</h3>
+                    <ul class="list-disc list-inside text-slate-300 space-y-2">
+                        <li>Simulación mensual de recursos y población</li>
+                        <li>Sistema de enclaves con diferentes tipos</li>
+                        <li>Gestión de criaturas con necesidades biológicas</li>
+                        <li>Monetización basada en visitantes y atracciones</li>
+                        <li>Persistencia de estado en JSON</li>
+                        <li>Interfaz de consola interactiva</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture Diagram -->
+        <section class="glass-panel rounded-2xl p-8">
+            <h2 class="text-3xl font-bold mb-6 text-center text-white">Arquitectura del Sistema</h2>
+            <div class="text-center mb-6">
+                <a href="Documentacion/arquitectura-ai-zoo.html" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                    Ver Diagrama Interactivo de Arquitectura
+                </a>
+            </div>
+            <p class="text-slate-300 text-center">
+                Explora el diagrama detallado de la jerarquía de agentes y su funcionamiento.
+            </p>
+        </section>
+
+        <!-- Project Structure -->
+        <section class="glass-panel rounded-2xl p-8">
+            <h2 class="text-3xl font-bold mb-6 text-center text-white">Estructura del Proyecto</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-slate-800/50 rounded-lg p-4">
+                    <h3 class="text-lg font-semibold text-emerald-400 mb-2">DuneDominion.Shared</h3>
+                    <p class="text-sm text-slate-300">Modelos de datos y clase base Agent</p>
+                </div>
+                <div class="bg-slate-800/50 rounded-lg p-4">
+                    <h3 class="text-lg font-semibold text-cyan-400 mb-2">DuneDominion.Simulation</h3>
+                    <p class="text-sm text-slate-300">Agentes de simulación y orquestador</p>
+                </div>
+                <div class="bg-slate-800/50 rounded-lg p-4">
+                    <h3 class="text-lg font-semibold text-amber-400 mb-2">DuneDominion.Persistence</h3>
+                    <p class="text-sm text-slate-300">Agente de persistencia y orquestador</p>
+                </div>
+                <div class="bg-slate-800/50 rounded-lg p-4">
+                    <h3 class="text-lg font-semibold text-pink-400 mb-2">DuneDominion.Client</h3>
+                    <p class="text-sm text-slate-300">Orquestador principal e interfaz</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Run -->
+        <section class="glass-panel rounded-2xl p-8">
+            <h2 class="text-3xl font-bold mb-6 text-center text-white">Cómo Ejecutar</h2>
+            <div class="bg-slate-800/50 rounded-lg p-6">
+                <h3 class="text-xl font-semibold text-cyan-400 mb-4">Requisitos</h3>
+                <ul class="list-disc list-inside text-slate-300 space-y-2 mb-6">
+                    <li>.NET 8.0 SDK</li>
+                    <li>Sistema operativo Linux/Windows/macOS</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-cyan-400 mb-4">Ejecución</h3>
+                <pre class="bg-slate-900 p-4 rounded text-green-400 overflow-x-auto"><code>cd DuneDominion.Client
+dotnet run</code></pre>
+
+                <p class="text-slate-300 mt-4">
+                    La aplicación se ejecuta en modo consola interactivo. Selecciona opciones del menú para gestionar tu parque.
+                </p>
+            </div>
+        </section>
+
+        <!-- Documentation -->
+        <section class="glass-panel rounded-2xl p-8">
+            <h2 class="text-3xl font-bold mb-6 text-center text-white">Documentación</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="text-center">
+                    <a href="Documentacion/arquitectura-ai-zoo.html" class="block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors">
+                        📊 Arquitectura IA
+                    </a>
+                    <p class="text-slate-400 mt-2">Diagrama de agentes y jerarquía</p>
+                </div>
+                <div class="text-center">
+                    <a href="README.md" class="block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors">
+                        📖 README
+                    </a>
+                    <p class="text-slate-400 mt-2">Documentación completa del proyecto</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-400">
+                &copy; 2026 Dunita Project. Construido con .NET y arquitectura multi-agente.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

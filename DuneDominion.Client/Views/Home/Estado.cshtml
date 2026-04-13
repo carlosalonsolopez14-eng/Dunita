@@ -1,0 +1,47 @@
+@model Partida
+
+@{
+    ViewData["Title"] = "Estado del Juego";
+}
+
+<div class="glass-panel rounded-2xl p-8">
+    <h2 class="text-3xl font-bold mb-6 text-center text-white">Estado de Enclaves y Criaturas</h2>
+
+    @foreach (var enclave in Model.Enclaves)
+    {
+        <div class="mb-8 p-6 bg-slate-800/50 rounded-lg">
+            <h3 class="text-xl font-semibold text-emerald-400 mb-4">
+                @enclave.Nombre (@enclave.Tipo) - Suministros: @enclave.Suministros.ToString("N0")/@enclave.CapacidadSuministros.ToString("N0")
+            </h3>
+
+            @if (enclave.Instalaciones.Any())
+            {
+                foreach (var instalacion in enclave.Instalaciones)
+                {
+                    <div class="ml-4 mb-4">
+                        <h4 class="text-lg font-medium text-cyan-300 mb-2">Instalación: @instalacion.Codigo</h4>
+                        @foreach (var criatura in instalacion.CriaturasAlojadas)
+                        {
+                            <div class="ml-4 p-3 bg-slate-700/50 rounded">
+                                <span class="font-medium text-amber-300">@criatura.NombreEspecie</span> |
+                                Salud: @criatura.Salud% |
+                                Edad: @criatura.EdadActual |
+                                Estado: @(criatura.EnLetargo ? "En letargo" : "Activa")
+                            </div>
+                        }
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="ml-4 text-slate-400">No hay instalaciones en este enclave.</p>
+            }
+        </div>
+    }
+
+    <div class="text-center mt-8">
+        <a href="/Home/Juego" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+            ← Volver al Centro de Mando
+        </a>
+    </div>
+</div>
