@@ -5,7 +5,12 @@ namespace DuneDominion.Persistence
 {
     public class PersistenceOrchestrator : Agent
     {
-        private readonly PersistenceAgent _persistenceAgent = new PersistenceAgent();
+        private readonly PersistenceAgent _persistenceAgent;
+
+        public PersistenceOrchestrator(PersistenceAgent persistenceAgent)
+        {
+            _persistenceAgent = persistenceAgent;
+        }
 
         public override async Task ExecuteAsync(Partida partida)
         {
@@ -21,6 +26,11 @@ namespace DuneDominion.Persistence
         public async Task<Partida> CargarPartidaAsync()
         {
             return await _persistenceAgent.CargarPartidaAsync();
+        }
+
+        public async Task<List<Partida>> ListarPartidasAsync()
+        {
+            return await _persistenceAgent.ListarPartidasAsync();
         }
     }
 }

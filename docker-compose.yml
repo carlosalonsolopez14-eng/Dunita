@@ -11,6 +11,10 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:5000
+      - ConnectionStrings__DefaultConnection=Host=dunita-db;Database=dunita;Username=postgres;Password=${POSTGRES_PASSWORD:-password}
+    depends_on:
+      dunita-db:
+        condition: service_healthy
     volumes:
       - ./estado_partida.json:/app/estado_partida.json
     restart: unless-stopped
@@ -20,6 +24,24 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
+
+  dunita-db:
+    image: postgres:15
+    container_name: dunita-postgres
+    environment:
+      - POSTGRES_DB=dunita
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-password}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   dunita-docs:
     image: python:3.11-slim
@@ -38,6 +60,8 @@ services:
       retries: 3
 
 volumes:
+  postgres_data:
+    driver: local
   partidas:
     driver: local
 

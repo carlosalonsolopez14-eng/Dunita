@@ -6,7 +6,12 @@ namespace DuneDominion.Client.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly MainOrchestrator _orquestador = new MainOrchestrator();
+        private readonly MainOrchestrator _orquestador;
+
+        public HomeController(MainOrchestrator orquestador)
+        {
+            _orquestador = orquestador;
+        }
 
         public IActionResult Index()
         {

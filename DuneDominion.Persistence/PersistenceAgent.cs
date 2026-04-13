@@ -1,6 +1,4 @@
 using System;
-using System.IO;
-using System.Text.Json;
 using System.Threading.Tasks;
 using DuneDominion.Shared;
 
@@ -8,7 +6,12 @@ namespace DuneDominion.Persistence
 {
     public class PersistenceAgent : Agent
     {
-        private readonly string _filePath = "estado_partida.json";
+        private readonly DatabasePersistenceService _persistenceService;
+
+        public PersistenceAgent(DatabasePersistenceService persistenceService)
+        {
+            _persistenceService = persistenceService;
+        }
 
         public override async Task ExecuteAsync(Partida partida)
         {
@@ -18,33 +21,17 @@ namespace DuneDominion.Persistence
 
         public async Task GuardarPartidaAsync(Partida partida)
         {
-            try
-            {
-                var options = new JsonSerializerOptions { WriteIndented = true };
-                string json = JsonSerializer.Serialize(partida, options);
-                await File.WriteAllTextAsync(_filePath, json);
-                partida.RegistroEventos.Add($"[{DateTime.Now}] Partida guardada con éxito.");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Error de persistencia al guardar: {ex.Message}");
-            }
+            await _persistenceService.GuardarPartidaAsync(partida);
         }
 
         public async Task<Partida> CargarPartidaAsync()
         {
-            if (!File.Exists(_filePath))
-                throw new FileNotFoundException("No se encontró ninguna partida guardada.");
+            return await _persistenceService.CargarPartidaAsync();
+        }
 
-            try
-            {
-                string json = await File.ReadAllTextAsync(_filePath);
-                return JsonSerializer.Deserialize<Partida>(json);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Estado corrupto o error de lectura: {ex.Message}");
-            }
+        public async Task<List<Partida>> ListarPartidasAsync()
+        {
+            return await _persistenceService.ListarPartidasAsync();
         }
     }
 }

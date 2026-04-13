@@ -30,3 +30,5 @@ C:/Users/a8t.DTOLEDO/Downloads/Dunita/DuneDominion.Persistence/obj/Debug/net8.0/
 /workspaces/Dunita/DuneDominion.Persistence/obj/Debug/net8.0/refint/DuneDominion.Persistence.dll
 /workspaces/Dunita/DuneDominion.Persistence/obj/Debug/net8.0/DuneDominion.Persistence.pdb
 /workspaces/Dunita/DuneDominion.Persistence/obj/Debug/net8.0/ref/DuneDominion.Persistence.dll
+/workspaces/Dunita/DuneDominion.Persistence/bin/Debug/net8.0/DuneDominion.Persistence.runtimeconfig.json
+/workspaces/Dunita/DuneDominion.Persistence/obj/Debug/net8.0/DuneDominion.Persistence.genruntimeconfig.cache

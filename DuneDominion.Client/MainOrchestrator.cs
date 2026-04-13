@@ -7,8 +7,14 @@ namespace DuneDominion.Client
 {
     public class MainOrchestrator : Agent
     {
-        private readonly SimulationOrchestrator _simulationOrchestrator = new SimulationOrchestrator();
-        private readonly PersistenceOrchestrator _persistenceOrchestrator = new PersistenceOrchestrator();
+        private readonly SimulationOrchestrator _simulationOrchestrator;
+        private readonly PersistenceOrchestrator _persistenceOrchestrator;
+
+        public MainOrchestrator(SimulationOrchestrator simulationOrchestrator, PersistenceOrchestrator persistenceOrchestrator)
+        {
+            _simulationOrchestrator = simulationOrchestrator;
+            _persistenceOrchestrator = persistenceOrchestrator;
+        }
 
         public override async Task ExecuteAsync(Partida partida)
         {
