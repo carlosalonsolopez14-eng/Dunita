@@ -1,0 +1,44 @@
+@model Partida
+
+@{
+    ViewData["Title"] = "Centro de Mando";
+}
+
+<div class="glass-panel rounded-2xl p-8">
+    <h2 class="text-3xl font-bold mb-6 text-center text-white">
+        Centro de Mando | Mes: @Model.MesActual | Solaris: @Model.Solaris.ToString("N0")
+    </h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <form method="post" asp-action="VerEstado" class="block">
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors">
+                👁️ Ver Estado de Enclaves y Criaturas
+            </button>
+        </form>
+
+        <form method="post" asp-action="EjecutarRonda" class="block">
+            <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors">
+                ⏭️ Ejecutar Ronda Mensual
+            </button>
+        </form>
+
+        <form method="post" asp-action="GuardarPartida" class="block">
+            <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors">
+                💾 Guardar Partida
+            </button>
+        </form>
+    </div>
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="p-4 bg-green-600/20 border border-green-500 rounded-lg text-green-300 mb-6">
+            @ViewBag.Message
+        </div>
+    }
+
+    <div class="text-center">
+        <a href="/" class="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+            🚪 Salir al Menú Principal
+        </a>
+    </div>
+</div>

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DuneDominion.Simulation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9222fa407d2e220cb7ef015ee6334372e8aa88a9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd2bb70fb2338d4a693befa75461914fc5b50a54")]
 [assembly: System.Reflection.AssemblyProductAttribute("DuneDominion.Simulation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DuneDominion.Simulation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
