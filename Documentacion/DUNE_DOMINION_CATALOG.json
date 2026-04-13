@@ -1,0 +1,589 @@
+{
+  "metadata": {
+    "titulo": "DUNE DOMINION - Catálogo Completo de Ítems",
+    "version": "1.0.0",
+    "fecha": "2026-04-13",
+    "totalItems": 24,
+    "descripcion": "Catálogo completo de instalaciones, estructuras de defensa, objetos y criaturas del videojuego DUNE DOMINION"
+  },
+  "instalaciones": [
+    {
+      "id": "bunker-001",
+      "nombre": "Búnker",
+      "descripcion": "Instalación subterránea blindada para albergar tropas y recursos. Proporciona máxima protección contra ataques externos.",
+      "categoria": "DEFENSA",
+      "tipo": "Aclimatación",
+      "rareza": "legendario",
+      "coste": 5000,
+      "imageUrl": "https://cdn.example.com/bunker.png",
+      "codigo": "BUNKER",
+      "faccion": "Casa Harkonnen",
+      "stats": {
+        "seguridad": 95,
+        "capacidad": 40,
+        "ingresos": 20,
+        "mantenimiento": 50
+      },
+      "efectos": [
+        "Protección máxima",
+        "Blindaje especial",
+        "Almacenamiento subterráneo"
+      ]
+    },
+    {
+      "id": "centro-investigacion-001",
+      "nombre": "Centro de Investigación",
+      "descripcion": "Laboratorio avanzado para el estudio científico de las criaturas de Arrakis. Permite investigar las características únicas de cada especie.",
+      "categoria": "INVESTIGACION",
+      "tipo": "Exhibición",
+      "rareza": "legendario",
+      "coste": 4500,
+      "imageUrl": "https://cdn.example.com/centro-investigacion.png",
+      "codigo": "CENTRO_INV",
+      "faccion": "Casa Atreides",
+      "stats": {
+        "seguridad": 60,
+        "capacidad": 30,
+        "ingresos": 50,
+        "mantenimiento": 40
+      },
+      "efectos": [
+        "Investigación +30%",
+        "Descubrimientos únicos",
+        "Análisis de criaturas"
+      ]
+    },
+    {
+      "id": "mercado-001",
+      "nombre": "Mercado",
+      "descripcion": "Gran plaza comercial donde los visitantes pueden observar y adquirir criaturas exóticas de Arrakis.",
+      "categoria": "COMERCIO",
+      "tipo": "Exhibición",
+      "rareza": "legendario",
+      "coste": 4000,
+      "imageUrl": "https://cdn.example.com/mercado.png",
+      "codigo": "MERCADO",
+      "faccion": "Casa Harkonnen",
+      "stats": {
+        "seguridad": 30,
+        "capacidad": 100,
+        "ingresos": 95,
+        "mantenimiento": 30
+      },
+      "efectos": [
+        "Comercio +50%",
+        "Atracción de visitantes",
+        "Intercambio de recursos"
+      ]
+    },
+    {
+      "id": "oficina-especia-001",
+      "nombre": "Oficina de Especia",
+      "descripcion": "Centro de procesamiento y comercio de la preciada melange. Gestiona la extracción y distribución de la especia.",
+      "categoria": "PRODUCCION",
+      "tipo": "Exhibición",
+      "rareza": "legendario",
+      "coste": 3500,
+      "imageUrl": "https://cdn.example.com/oficina-especia.png",
+      "codigo": "OFICINA_ESP",
+      "faccion": "Casa Harkonnen",
+      "stats": {
+        "seguridad": 85,
+        "capacidad": 20,
+        "ingresos": 100,
+        "mantenimiento": 60
+      },
+      "efectos": [
+        "Producción de especia +100%",
+        "Comercio de melange",
+        "Ingresos pasivos"
+      ]
+    },
+    {
+      "id": "recinto-grande-001",
+      "nombre": "Recinto Grande",
+      "descripcion": "Amplio recinto para albergar criaturas grandes de Arrakis. Diseñado para bestias de considerable tamaño.",
+      "categoria": "ALOJAMIENTO",
+      "tipo": "Aclimatación",
+      "rareza": "epico",
+      "coste": 3000,
+      "imageUrl": "https://cdn.example.com/recinto-grande.png",
+      "codigo": "RECINTO_GR",
+      "faccion": "Casa Atreides",
+      "stats": {
+        "seguridad": 70,
+        "capacidad": 50,
+        "ingresos": 40,
+        "mantenimiento": 45
+      },
+      "efectos": [
+        "Alojamiento de criaturas grandes",
+        "Capacidad expandida",
+        "Ambiente controlado"
+      ]
+    },
+    {
+      "id": "recinto-pequeno-001",
+      "nombre": "Recinto Pequeño",
+      "descripcion": "Recinto compacto para criaturas pequeñas y medianas. Eficiente en espacio y recursos.",
+      "categoria": "ALOJAMIENTO",
+      "tipo": "Aclimatación",
+      "rareza": "raro",
+      "coste": 1500,
+      "imageUrl": "https://cdn.example.com/recinto-pequeno.png",
+      "codigo": "RECINTO_PQ",
+      "faccion": "Casa Atreides",
+      "stats": {
+        "seguridad": 50,
+        "capacidad": 25,
+        "ingresos": 20,
+        "mantenimiento": 20
+      },
+      "efectos": [
+        "Alojamiento de criaturas pequeñas",
+        "Bajo mantenimiento",
+        "Económico"
+      ]
+    },
+    {
+      "id": "centro-mantenimiento-001",
+      "nombre": "Centro de Mantenimiento",
+      "descripcion": "Instalación dedicada al mantenimiento y reparación de estructuras y equipos del enclave.",
+      "categoria": "SERVICIO",
+      "tipo": "Aclimatación",
+      "rareza": "raro",
+      "coste": 2000,
+      "imageUrl": "https://cdn.example.com/centro-mantenimiento.png",
+      "codigo": "CENTRO_MAN",
+      "faccion": "Casa Atreides",
+      "stats": {
+        "seguridad": 40,
+        "capacidad": 15,
+        "ingresos": 30,
+        "mantenimiento": 25
+      },
+      "efectos": [
+        "Reparación de estructuras",
+        "Mantenimiento reducido",
+        "Durabilidad mejorada"
+      ]
+    },
+    {
+      "id": "invernadero-001",
+      "nombre": "Invernadero",
+      "descripcion": "Instalación agrícola para cultivar plantas y alimentos en el árido desierto de Arrakis.",
+      "categoria": "PRODUCCION",
+      "tipo": "Aclimatación",
+      "rareza": "comun",
+      "coste": 1000,
+      "imageUrl": "https://cdn.example.com/invernadero.png",
+      "codigo": "INVERNADERO",
+      "faccion": "Casa Atreides",
+      "stats": {
+        "seguridad": 20,
+        "capacidad": 30,
+        "ingresos": 25,
+        "mantenimiento": 15
+      },
+      "efectos": [
+        "Cultivo de alimentos",
+        "Autosuficiencia",
+        "Recursos renovables"
+      ]
+    }
+  ],
+  "estructurasDefensa": [
+    {
+      "id": "torre-defensa-001",
+      "nombre": "Torre de Defensa",
+      "descripcion": "Torre armada con cañones de energía para defender el enclave contra amenazas externas.",
+      "codigo": "TORRE_DEF",
+      "rareza": "epico",
+      "coste": 2500,
+      "imageUrl": "https://cdn.example.com/torre-defensa.png",
+      "stats": {
+        "defensa": 85,
+        "durabilidad": 100
+      },
+      "efectos": [
+        "Disparo automático",
+        "Cobertura 360°",
+        "Daño +50%"
+      ]
+    },
+    {
+      "id": "muro-defensa-001",
+      "nombre": "Muro de Defensa",
+      "descripcion": "Muro reforzado que rodea el perímetro del enclave, ralentizando a los enemigos.",
+      "codigo": "MURO_DEF",
+      "rareza": "raro",
+      "coste": 1500,
+      "imageUrl": "https://cdn.example.com/muro-defensa.png",
+      "stats": {
+        "defensa": 70,
+        "durabilidad": 150
+      },
+      "efectos": [
+        "Barrera física",
+        "Ralentiza enemigos",
+        "Bloquea proyectiles"
+      ]
+    },
+    {
+      "id": "puesto-vigilancia-001",
+      "nombre": "Puesto de Vigilancia",
+      "descripcion": "Puesto elevado para vigilancia y detección temprana de amenazas.",
+      "codigo": "PUESTO_VIG",
+      "rareza": "raro",
+      "coste": 1200,
+      "imageUrl": "https://cdn.example.com/puesto-vigilancia.png",
+      "stats": {
+        "defensa": 50,
+        "durabilidad": 80
+      },
+      "efectos": [
+        "Visión mejorada",
+        "Detección temprana",
+        "Alerta de amenazas"
+      ]
+    },
+    {
+      "id": "artilleria-pesada-001",
+      "nombre": "Artillería Pesada",
+      "descripcion": "Sistema de artillería de largo alcance para atacar objetivos distantes.",
+      "codigo": "ARTILLERIA",
+      "rareza": "epico",
+      "coste": 3500,
+      "imageUrl": "https://cdn.example.com/artilleria-pesada.png",
+      "stats": {
+        "defensa": 90,
+        "durabilidad": 120
+      },
+      "efectos": [
+        "Daño de largo alcance",
+        "Impacto devastador",
+        "Área de efecto"
+      ]
+    },
+    {
+      "id": "escudo-generador-001",
+      "nombre": "Escudo Generador",
+      "descripcion": "Generador de campo de energía que protege el enclave de ataques.",
+      "codigo": "ESCUDO_GEN",
+      "rareza": "legendario",
+      "coste": 5000,
+      "imageUrl": "https://cdn.example.com/escudo-generador.png",
+      "stats": {
+        "defensa": 100,
+        "durabilidad": 200
+      },
+      "efectos": [
+        "Campo de energía",
+        "Protección absoluta",
+        "Regeneración de escudo"
+      ]
+    }
+  ],
+  "objetos": [
+    {
+      "id": "pocion-curacion-001",
+      "nombre": "Poción de Curación",
+      "descripcion": "Poción mágica que restaura 50 puntos de salud al usuario. Efecto instantáneo.",
+      "tipo": "POCION",
+      "categoria": "Consumible",
+      "rareza": "comun",
+      "coste": 100,
+      "cantidad": 5,
+      "imageUrl": "https://cdn.example.com/pocion-curacion.png",
+      "efectos": [
+        "Curación +50 HP",
+        "Duración 10 turnos",
+        "Efecto inmediato"
+      ]
+    },
+    {
+      "id": "pocion-escudo-001",
+      "nombre": "Poción de Escudo",
+      "descripcion": "Poción que otorga un escudo temporal que absorbe daño.",
+      "tipo": "POCION",
+      "categoria": "Consumible",
+      "rareza": "raro",
+      "coste": 250,
+      "cantidad": 3,
+      "imageUrl": "https://cdn.example.com/pocion-escudo.png",
+      "efectos": [
+        "Escudo +100 puntos",
+        "Duración 15 turnos",
+        "Absorbe daño"
+      ]
+    },
+    {
+      "id": "pocion-velocidad-001",
+      "nombre": "Poción de Velocidad",
+      "descripcion": "Poción que aumenta la velocidad de movimiento y ataque.",
+      "tipo": "POCION",
+      "categoria": "Consumible",
+      "rareza": "epico",
+      "coste": 400,
+      "cantidad": 2,
+      "imageUrl": "https://cdn.example.com/pocion-velocidad.png",
+      "efectos": [
+        "Velocidad +50%",
+        "Ataque +30%",
+        "Duración 20 turnos"
+      ]
+    },
+    {
+      "id": "recluta-soldado-001",
+      "nombre": "Recluta Soldado",
+      "descripcion": "Soldado entrenado listo para el combate. Unidad básica de infantería.",
+      "tipo": "RECLUTA",
+      "categoria": "Unidad",
+      "rareza": "comun",
+      "coste": 500,
+      "cantidad": 1,
+      "imageUrl": "https://cdn.example.com/recluta-soldado.png",
+      "efectos": [
+        "Ataque +20",
+        "Defensa +10",
+        "Salud 50 HP"
+      ]
+    },
+    {
+      "id": "mercenario-elite-001",
+      "nombre": "Mercenario Élite",
+      "descripcion": "Guerrero experimentado con equipo de primera calidad. Unidad de combate avanzada.",
+      "tipo": "MERCENARIO",
+      "categoria": "Unidad",
+      "rareza": "epico",
+      "coste": 2000,
+      "cantidad": 1,
+      "imageUrl": "https://cdn.example.com/mercenario-elite.png",
+      "efectos": [
+        "Ataque +60",
+        "Defensa +40",
+        "Salud 150 HP",
+        "Habilidades especiales"
+      ]
+    }
+  ],
+  "criaturas": [
+    {
+      "id": "shai-hulud-001",
+      "nombre": "Shai-Hulud",
+      "nombreComun": "Gusano de Arena",
+      "descripcion": "La criatura más poderosa de Arrakis, productora de la especia melange. Considerada divina por los Fremen.",
+      "especie": "Gusano de Arena",
+      "rareza": "legendario",
+      "costeCompra": 50000,
+      "costeVenta": 25000,
+      "imageUrl": "https://cdn.example.com/shai-hulud.png",
+      "stats": {
+        "ataque": 95,
+        "defensa": 85,
+        "velocidad": 60,
+        "resistencia": 100
+      },
+      "habilidades": [
+        "Terremoto",
+        "Absorción de especia",
+        "Regeneración",
+        "Invulnerabilidad temporal"
+      ]
+    },
+    {
+      "id": "muad-dib-001",
+      "nombre": "Muad'Dib",
+      "nombreComun": "Águila del Desierto",
+      "descripcion": "Águila legendaria de Arrakis, símbolo de poder y libertad. Vuela a velocidades extremas.",
+      "especie": "Águila",
+      "rareza": "epico",
+      "costeCompra": 10000,
+      "costeVenta": 5000,
+      "imageUrl": "https://cdn.example.com/muad-dib.png",
+      "stats": {
+        "ataque": 75,
+        "defensa": 60,
+        "velocidad": 95,
+        "resistencia": 70
+      },
+      "habilidades": [
+        "Vuelo rápido",
+        "Visión nocturna",
+        "Ataque aéreo",
+        "Rastreo de presas"
+      ]
+    },
+    {
+      "id": "cielago-001",
+      "nombre": "Ciélago",
+      "nombreComun": "Murciélago del Desierto",
+      "descripcion": "Murciélago gigante que habita las cuevas del desierto. Excelente cazador nocturno.",
+      "especie": "Murciélago",
+      "rareza": "raro",
+      "costeCompra": 3000,
+      "costeVenta": 1500,
+      "imageUrl": "https://cdn.example.com/cielago.png",
+      "stats": {
+        "ataque": 50,
+        "defensa": 40,
+        "velocidad": 80,
+        "resistencia": 50
+      },
+      "habilidades": [
+        "Ecolocalización",
+        "Vuelo nocturno",
+        "Ataque sorpresa",
+        "Inmunidad a la oscuridad"
+      ]
+    },
+    {
+      "id": "aguila-desierto-001",
+      "nombre": "Águila del Desierto",
+      "nombreComun": "Halcón Dorado",
+      "descripcion": "Águila de tamaño mediano que patrulla los cielos de Arrakis buscando presas.",
+      "especie": "Halcón",
+      "rareza": "raro",
+      "costeCompra": 2500,
+      "costeVenta": 1250,
+      "imageUrl": "https://cdn.example.com/aguila-desierto.png",
+      "stats": {
+        "ataque": 60,
+        "defensa": 45,
+        "velocidad": 85,
+        "resistencia": 55
+      },
+      "habilidades": [
+        "Vuelo de altura",
+        "Visión aguda",
+        "Ataque en picada",
+        "Resistencia al calor"
+      ]
+    },
+    {
+      "id": "escorpion-arena-001",
+      "nombre": "Escorpión de Arena",
+      "nombreComun": "Escorpión Gigante",
+      "descripcion": "Escorpión gigante del desierto con veneno letal. Depredador terrestre peligroso.",
+      "especie": "Escorpión",
+      "rareza": "epico",
+      "costeCompra": 8000,
+      "costeVenta": 4000,
+      "imageUrl": "https://cdn.example.com/escorpion-arena.png",
+      "stats": {
+        "ataque": 80,
+        "defensa": 70,
+        "velocidad": 50,
+        "resistencia": 85
+      },
+      "habilidades": [
+        "Veneno letal",
+        "Caparazón blindado",
+        "Ataque de cola",
+        "Resistencia al veneno"
+      ]
+    },
+    {
+      "id": "trucha-arena-001",
+      "nombre": "Trucha de Arena",
+      "nombreComun": "Pez del Desierto",
+      "descripcion": "Criatura acuática que vive en los oasis de Arrakis. Rara y misteriosa.",
+      "especie": "Pez",
+      "rareza": "legendario",
+      "costeCompra": 15000,
+      "costeVenta": 7500,
+      "imageUrl": "https://cdn.example.com/trucha-arena.png",
+      "stats": {
+        "ataque": 70,
+        "defensa": 75,
+        "velocidad": 70,
+        "resistencia": 90
+      },
+      "habilidades": [
+        "Respiración acuática",
+        "Ataque de agua",
+        "Escudo de agua",
+        "Teleportación acuática"
+      ]
+    }
+  ],
+  "estadisticas": {
+    "totalInstalaciones": 8,
+    "totalEstructurasDefensa": 5,
+    "totalObjetos": 5,
+    "totalCriaturas": 6,
+    "totalItems": 24,
+    "rarezaDistribucion": {
+      "legendario": 4,
+      "epico": 6,
+      "raro": 8,
+      "comun": 6
+    },
+    "costoPromedio": {
+      "instalaciones": 3187.5,
+      "estructurasDefensa": 2740,
+      "objetos": 730,
+      "criaturas": 14750
+    },
+    "estadisticasPromedio": {
+      "instalaciones": {
+        "seguridad": 58.75,
+        "capacidad": 39.375,
+        "ingresos": 47.5,
+        "mantenimiento": 36.25
+      },
+      "estructurasDefensa": {
+        "defensa": 79,
+        "durabilidad": 130
+      },
+      "criaturas": {
+        "ataque": 71.67,
+        "defensa": 62.5,
+        "velocidad": 73.33,
+        "resistencia": 75
+      }
+    }
+  },
+  "categorias": {
+    "instalaciones": [
+      "DEFENSA",
+      "INVESTIGACION",
+      "COMERCIO",
+      "PRODUCCION",
+      "ALOJAMIENTO",
+      "SERVICIO"
+    ],
+    "objetos": [
+      "POCION",
+      "RECLUTA",
+      "MERCENARIO"
+    ],
+    "rarezas": [
+      "legendario",
+      "epico",
+      "raro",
+      "comun"
+    ]
+  },
+  "facciones": [
+    "Casa Harkonnen",
+    "Casa Atreides"
+  ],
+  "tiposInstalaciones": [
+    "Aclimatación",
+    "Exhibición"
+  ],
+  "informacionAdicional": {
+    "urlCatalogo": "https://dunecatalog-mltpe2ng.manus.space",
+    "urlAPI": "http://localhost:3000/api/trpc",
+    "documentacionAPI": "API_DOCUMENTATION.md",
+    "guiaIntegracion": "README_API.md",
+    "notas": [
+      "Este JSON contiene todos los datos del catálogo de DUNE DOMINION",
+      "Puedes usar este archivo para cargar datos iniciales en tu videojuego",
+      "La API REST proporciona acceso dinámico a estos datos",
+      "Todos los costos están en unidades de especia (melange)",
+      "Las estadísticas están normalizadas de 0 a 100"
+    ]
+  }
+}
