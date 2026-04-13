@@ -23,18 +23,18 @@ namespace DuneDominion.Client.Controllers
 
                 // Ejecutar docker-compose up -d desde el directorio raíz del proyecto
                 var projectRoot = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..");
-                var dockerComposePath = Path.Combine(projectRoot, "docker-compose.yml");
+                var composePath = Path.Combine(projectRoot, "docker-compose.yml");
 
-                if (!File.Exists(dockerComposePath))
+                if (!System.IO.File.Exists(composePath))
                 {
-                    _logger.LogError($"docker-compose.yml no encontrado en {dockerComposePath}");
+                    _logger.LogError($"docker-compose.yml no encontrado en {composePath}");
                     return BadRequest(new { error = "Configuración de Docker no encontrada" });
                 }
 
                 var processInfo = new ProcessStartInfo
                 {
                     FileName = "docker-compose",
-                    Arguments = $"-f {dockerComposePath} up -d",
+                    Arguments = $"-f {composePath} up -d",
                     WorkingDirectory = projectRoot,
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
@@ -78,12 +78,12 @@ namespace DuneDominion.Client.Controllers
             try
             {
                 var projectRoot = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..");
-                var dockerComposePath = Path.Combine(projectRoot, "docker-compose.yml");
+                var composePath = Path.Combine(projectRoot, "docker-compose.yml");
 
                 var processInfo = new ProcessStartInfo
                 {
                     FileName = "docker-compose",
-                    Arguments = $"-f {dockerComposePath} ps",
+                    Arguments = $"-f {composePath} ps",
                     WorkingDirectory = projectRoot,
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
