@@ -11,8 +11,7 @@ namespace DuneDominion.Client
     {
         static async Task Main(string[] args)
         {
-            var persistencia = new JsonPersistenceService();
-            var simulacion = new SimulationEngine();
+            var orquestador = new MainOrchestrator();
             Partida partidaActual = null;
 
             Console.WriteLine("=== DUNE: ARRAKIS DOMINION DISTRIBUTED ===");
@@ -22,7 +21,7 @@ namespace DuneDominion.Client
             string opcionInicial = Console.ReadLine();
             if (opcionInicial == "2")
             {
-                try { partidaActual = await persistencia.CargarPartidaAsync(); }
+                try { partidaActual = await orquestador.CargarPartidaAsync(); }
                 catch (Exception e) { Console.WriteLine(e.Message); return; }
             }
             else
@@ -49,12 +48,12 @@ namespace DuneDominion.Client
                         MostrarEstado(partidaActual);
                         break;
                     case "2":
-                        simulacion.EjecutarRondaMensual(partidaActual);
+                        await orquestador.EjecutarRondaMensual(partidaActual);
                         Console.WriteLine("Simulación completada. Presione enter...");
                         Console.ReadLine();
                         break;
                     case "3":
-                        await persistencia.GuardarPartidaAsync(partidaActual);
+                        await orquestador.GuardarPartidaAsync(partidaActual);
                         Console.WriteLine("Guardado exitoso. Presione enter...");
                         Console.ReadLine();
                         break;
@@ -62,7 +61,7 @@ namespace DuneDominion.Client
                         AbrirTienda(partidaActual);
                         break;
                     case "5":
-                        await persistencia.GuardarPartidaAsync(partidaActual);
+                        await orquestador.GuardarPartidaAsync(partidaActual);
                         return;
                 }
             }

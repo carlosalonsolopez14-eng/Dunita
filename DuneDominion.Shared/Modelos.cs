@@ -58,4 +58,9 @@ namespace DuneDominion.Shared
         public int CosteCompra { get; set; }
         public bool EnLetargo => Salud <= 0;
     }
+
+    public abstract class Agent
+    {
+        public abstract Task ExecuteAsync(Partida partida);
+    }
 }
