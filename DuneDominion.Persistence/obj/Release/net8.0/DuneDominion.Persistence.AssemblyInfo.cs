@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DuneDominion.Persistence")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42ce62a0fcf0fa5e2c0718d8e45fb87d78d5485e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e8e70ba0a8aa569ee8b37410e31c7e074f8242b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("DuneDominion.Persistence")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DuneDominion.Persistence")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

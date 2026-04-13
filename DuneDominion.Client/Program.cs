@@ -10,8 +10,12 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
 
 // Configurar Entity Framework Core con PostgreSQL
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+    ?? builder.Configuration["DATABASE_URL"] 
+    ?? "Host=localhost;Database=dunita;Username=postgres;Password=password";
+
 builder.Services.AddDbContext<DunitaDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(connectionString));
 
 // Registrar servicios de persistencia
 builder.Services.AddScoped<DatabasePersistenceService>();

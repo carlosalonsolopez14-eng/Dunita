@@ -127,8 +127,20 @@ Railway ofrece despliegue automático desde GitHub con soporte nativo para Docke
 
 ### Servicios Desplegados
 
-- **dunita-app**: Aplicación principal en `https://dunita-app.railway.app`
-- **dunita-docs**: Documentación en `https://dunita-docs.railway.app`
+- **dunita-app**: Aplicación principal en `https://dunita-app-production-xxxx.railway.app`
+- **dunita-docs**: Documentación en `https://dunita-docs-production-xxxx.railway.app`
+- **dunita-db**: Base de datos PostgreSQL (accesible solo internamente)
+
+### Configuración de Base de Datos
+
+Railway crea automáticamente una base de datos PostgreSQL. Las variables de entorno se configuran automáticamente:
+
+- `DATABASE_URL`: URL completa de conexión PostgreSQL
+- La aplicación usa `ConnectionStrings__DefaultConnection` que se mapea desde `DATABASE_URL`
+
+### Migraciones de Base de Datos
+
+Las migraciones EF Core se ejecutan automáticamente al iniciar la aplicación en producción.
 
 ### Actualizaciones Automáticas
 
@@ -201,7 +213,39 @@ docker-compose build --no-cache
 # Ejecutar comando en contenedor
 docker-compose exec dunita-app bash
 ```
+## 🗄️ Base de Datos PostgreSQL
 
+La aplicación ahora usa PostgreSQL en lugar de archivos JSON para persistencia de datos.
+
+### Características de la Base de Datos
+
+- **Motor**: PostgreSQL 15
+- **ORM**: Entity Framework Core 8.0
+- **Migraciones**: Automáticas al iniciar la aplicación
+- **Tablas**:
+  - `Partidas`: Almacena sesiones de juego
+  - `Enclaves`: Gestiona territorios y construcciones
+  - `Instalaciones`: Define recintos y capacidades
+  - `Criaturas`: Almacena datos de animales
+
+### Configuración Local
+
+Para desarrollo local con Docker:
+
+```bash
+# Levantar solo la base de datos
+docker-compose up -d dunita-db
+
+# Ver logs de la DB
+docker-compose logs dunita-db
+
+# Conectar a la DB
+docker-compose exec dunita-db psql -U postgres -d dunita
+```
+
+### Producción en Railway
+
+Railway crea automáticamente la instancia PostgreSQL y configura las variables de entorno.
 ## �📊 Documentación
 
 - **[Arquitectura IA](Documentacion/arquitectura-ai-zoo.html)**: Diagrama interactivo de la jerarquía de agentes

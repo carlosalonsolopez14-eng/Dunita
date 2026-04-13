@@ -14,3 +14,5 @@
 /workspaces/Dunita/DuneDominion.Persistence/obj/Release/net8.0/refint/DuneDominion.Persistence.dll
 /workspaces/Dunita/DuneDominion.Persistence/obj/Release/net8.0/DuneDominion.Persistence.pdb
 /workspaces/Dunita/DuneDominion.Persistence/obj/Release/net8.0/ref/DuneDominion.Persistence.dll
+/workspaces/Dunita/DuneDominion.Persistence/bin/Release/net8.0/DuneDominion.Persistence.runtimeconfig.json
+/workspaces/Dunita/DuneDominion.Persistence/obj/Release/net8.0/DuneDominion.Persistence.genruntimeconfig.cache
