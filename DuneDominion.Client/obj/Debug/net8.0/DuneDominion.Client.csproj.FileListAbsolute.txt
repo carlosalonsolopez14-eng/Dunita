@@ -393,3 +393,4 @@ C:/Users/a8t.DTOLEDO/Downloads/Dunita/DuneDominion.Client/obj/Debug/net8.0/ref/D
 /workspaces/Dunita/DuneDominion.Client/obj/Debug/net8.0/DuneDominion.Client.pdb
 /workspaces/Dunita/DuneDominion.Client/obj/Debug/net8.0/DuneDominion.Client.genruntimeconfig.cache
 /workspaces/Dunita/DuneDominion.Client/obj/Debug/net8.0/ref/DuneDominion.Client.dll
+/workspaces/Dunita/DuneDominion.Client/bin/Debug/net8.0/DuneDominion.Client.staticwebassets.runtime.json
