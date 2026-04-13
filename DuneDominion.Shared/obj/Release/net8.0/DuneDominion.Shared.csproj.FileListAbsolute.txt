@@ -1,0 +1,12 @@
+/workspaces/Dunita/DuneDominion.Shared/bin/Release/net8.0/DuneDominion.Shared.deps.json
+/workspaces/Dunita/DuneDominion.Shared/bin/Release/net8.0/DuneDominion.Shared.dll
+/workspaces/Dunita/DuneDominion.Shared/bin/Release/net8.0/DuneDominion.Shared.pdb
+/workspaces/Dunita/DuneDominion.Shared/obj/Release/net8.0/DuneDominion.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/Dunita/DuneDominion.Shared/obj/Release/net8.0/DuneDominion.Shared.AssemblyInfoInputs.cache
+/workspaces/Dunita/DuneDominion.Shared/obj/Release/net8.0/DuneDominion.Shared.AssemblyInfo.cs
+/workspaces/Dunita/DuneDominion.Shared/obj/Release/net8.0/DuneDominion.Shared.csproj.CoreCompileInputs.cache
+/workspaces/Dunita/DuneDominion.Shared/obj/Release/net8.0/DuneDominion.Shared.sourcelink.json
+/workspaces/Dunita/DuneDominion.Shared/obj/Release/net8.0/DuneDominion.Shared.dll
+/workspaces/Dunita/DuneDominion.Shared/obj/Release/net8.0/refint/DuneDominion.Shared.dll
+/workspaces/Dunita/DuneDominion.Shared/obj/Release/net8.0/DuneDominion.Shared.pdb
+/workspaces/Dunita/DuneDominion.Shared/obj/Release/net8.0/ref/DuneDominion.Shared.dll

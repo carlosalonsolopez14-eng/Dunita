@@ -1,0 +1,46 @@
+version: '3.9'
+
+services:
+  dunita-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dunita-game
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5000
+    volumes:
+      - ./estado_partida.json:/app/estado_partida.json
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  dunita-docs:
+    image: python:3.11-slim
+    container_name: dunita-docs
+    working_dir: /docs
+    command: python -m http.server 8080 --bind 0.0.0.0
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./Documentacion:/docs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  partidas:
+    driver: local
+
+networks:
+  dunita-network:
+    driver: bridge

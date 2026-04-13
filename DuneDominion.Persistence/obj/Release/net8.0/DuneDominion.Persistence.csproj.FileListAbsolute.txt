@@ -1,0 +1,16 @@
+/workspaces/Dunita/DuneDominion.Persistence/bin/Release/net8.0/DuneDominion.Persistence.deps.json
+/workspaces/Dunita/DuneDominion.Persistence/bin/Release/net8.0/DuneDominion.Persistence.dll
+/workspaces/Dunita/DuneDominion.Persistence/bin/Release/net8.0/DuneDominion.Persistence.pdb
+/workspaces/Dunita/DuneDominion.Persistence/bin/Release/net8.0/DuneDominion.Shared.dll
+/workspaces/Dunita/DuneDominion.Persistence/bin/Release/net8.0/DuneDominion.Shared.pdb
+/workspaces/Dunita/DuneDominion.Persistence/obj/Release/net8.0/DuneDominion.Persistence.csproj.AssemblyReference.cache
+/workspaces/Dunita/DuneDominion.Persistence/obj/Release/net8.0/DuneDominion.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/Dunita/DuneDominion.Persistence/obj/Release/net8.0/DuneDominion.Persistence.AssemblyInfoInputs.cache
+/workspaces/Dunita/DuneDominion.Persistence/obj/Release/net8.0/DuneDominion.Persistence.AssemblyInfo.cs
+/workspaces/Dunita/DuneDominion.Persistence/obj/Release/net8.0/DuneDominion.Persistence.csproj.CoreCompileInputs.cache
+/workspaces/Dunita/DuneDominion.Persistence/obj/Release/net8.0/DuneDominion.Persistence.sourcelink.json
+/workspaces/Dunita/DuneDominion.Persistence/obj/Release/net8.0/DuneDomi.046878E3.Up2Date
+/workspaces/Dunita/DuneDominion.Persistence/obj/Release/net8.0/DuneDominion.Persistence.dll
+/workspaces/Dunita/DuneDominion.Persistence/obj/Release/net8.0/refint/DuneDominion.Persistence.dll
+/workspaces/Dunita/DuneDominion.Persistence/obj/Release/net8.0/DuneDominion.Persistence.pdb
+/workspaces/Dunita/DuneDominion.Persistence/obj/Release/net8.0/ref/DuneDominion.Persistence.dll
