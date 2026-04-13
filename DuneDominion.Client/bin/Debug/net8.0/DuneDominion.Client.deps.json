@@ -22,7 +22,7 @@
         },
         "runtime": {
           "DuneDominion.Persistence.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -30,7 +30,7 @@
       "DuneDominion.Shared/1.0.0": {
         "runtime": {
           "DuneDominion.Shared.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -41,7 +41,7 @@
         },
         "runtime": {
           "DuneDominion.Simulation.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }

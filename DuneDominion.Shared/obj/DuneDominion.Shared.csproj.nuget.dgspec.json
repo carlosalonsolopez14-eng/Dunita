@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\a8t.DTOLEDO\\Downloads\\Dunita\\DuneDominion.Shared\\DuneDominion.Shared.csproj": {}
+    "/workspaces/Dunita/DuneDominion.Shared/DuneDominion.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\a8t.DTOLEDO\\Downloads\\Dunita\\DuneDominion.Shared\\DuneDominion.Shared.csproj": {
+    "/workspaces/Dunita/DuneDominion.Shared/DuneDominion.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\a8t.DTOLEDO\\Downloads\\Dunita\\DuneDominion.Shared\\DuneDominion.Shared.csproj",
+        "projectUniqueName": "/workspaces/Dunita/DuneDominion.Shared/DuneDominion.Shared.csproj",
         "projectName": "DuneDominion.Shared",
-        "projectPath": "C:\\Users\\a8t.DTOLEDO\\Downloads\\Dunita\\DuneDominion.Shared\\DuneDominion.Shared.csproj",
-        "packagesPath": "C:\\Users\\a8t.DTOLEDO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\a8t.DTOLEDO\\Downloads\\Dunita\\DuneDominion.Shared\\obj\\",
+        "projectPath": "/workspaces/Dunita/DuneDominion.Shared/DuneDominion.Shared.csproj",
+        "packagesPath": "/home/codespace/.nuget/packages/",
+        "outputPath": "/workspaces/Dunita/DuneDominion.Shared/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\a8t.DTOLEDO\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/codespace/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -37,7 +37,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -53,12 +54,22 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.22, 8.0.22]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.417/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

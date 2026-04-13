@@ -65,19 +65,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\a8t.DTOLEDO\\.nuget\\packages\\": {}
+    "/home/codespace/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\a8t.DTOLEDO\\Downloads\\Dunita\\DuneDominion.Client\\DuneDominion.Client.csproj",
+      "projectUniqueName": "/workspaces/Dunita/DuneDominion.Client/DuneDominion.Client.csproj",
       "projectName": "DuneDominion.Client",
-      "projectPath": "C:\\Users\\a8t.DTOLEDO\\Downloads\\Dunita\\DuneDominion.Client\\DuneDominion.Client.csproj",
-      "packagesPath": "C:\\Users\\a8t.DTOLEDO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\a8t.DTOLEDO\\Downloads\\Dunita\\DuneDominion.Client\\obj\\",
+      "projectPath": "/workspaces/Dunita/DuneDominion.Client/DuneDominion.Client.csproj",
+      "packagesPath": "/home/codespace/.nuget/packages/",
+      "outputPath": "/workspaces/Dunita/DuneDominion.Client/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\a8t.DTOLEDO\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/codespace/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -89,14 +89,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\a8t.DTOLEDO\\Downloads\\Dunita\\DuneDominion.Persistence\\DuneDominion.Persistence.csproj": {
-              "projectPath": "C:\\Users\\a8t.DTOLEDO\\Downloads\\Dunita\\DuneDominion.Persistence\\DuneDominion.Persistence.csproj"
+            "/workspaces/Dunita/DuneDominion.Persistence/DuneDominion.Persistence.csproj": {
+              "projectPath": "/workspaces/Dunita/DuneDominion.Persistence/DuneDominion.Persistence.csproj"
             },
-            "C:\\Users\\a8t.DTOLEDO\\Downloads\\Dunita\\DuneDominion.Shared\\DuneDominion.Shared.csproj": {
-              "projectPath": "C:\\Users\\a8t.DTOLEDO\\Downloads\\Dunita\\DuneDominion.Shared\\DuneDominion.Shared.csproj"
+            "/workspaces/Dunita/DuneDominion.Shared/DuneDominion.Shared.csproj": {
+              "projectPath": "/workspaces/Dunita/DuneDominion.Shared/DuneDominion.Shared.csproj"
             },
-            "C:\\Users\\a8t.DTOLEDO\\Downloads\\Dunita\\DuneDominion.Simulation\\DuneDominion.Simulation.csproj": {
-              "projectPath": "C:\\Users\\a8t.DTOLEDO\\Downloads\\Dunita\\DuneDominion.Simulation\\DuneDominion.Simulation.csproj"
+            "/workspaces/Dunita/DuneDominion.Simulation/DuneDominion.Simulation.csproj": {
+              "projectPath": "/workspaces/Dunita/DuneDominion.Simulation/DuneDominion.Simulation.csproj"
             }
           }
         }
@@ -110,7 +110,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -126,12 +127,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.22, 8.0.22]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.linux-x64",
+            "version": "[8.0.22, 8.0.22]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.22, 8.0.22]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.417/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
