@@ -1,3 +1,4 @@
+
 # Dunita - Dune Dominion Multi-Agent Simulator
 
 Un simulador de gestión de zoológico/parque temático ambientado en el universo de Dune, construido con una arquitectura multi-agente para una simulación realista y modular.
