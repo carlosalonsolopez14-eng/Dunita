@@ -229,146 +229,253 @@
             animation: spin 0.8s linear infinite;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-200">
+    <canvas id="canvas"></canvas>
 
-    <!-- Header -->
-    <header class="hero-bg py-16">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400 mb-4">
-                DUNITA
-            </h1>
-            <p class="text-xl text-slate-400 mb-8">Dune Dominion Multi-Agent Simulator</p>
-            <p class="text-lg text-slate-300 max-w-3xl mx-auto">
-                Un simulador de gestión de zoológico/parque temático ambientado en el universo de Dune,
-                construido con arquitectura multi-agente para una simulación realista y modular.
-            </p>
-        </div>
-    </header>
+    <div class="content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>DUNITA</h1>
+                <p class="subtitle">Dune Dominion Multi-Agent Simulator</p>
+                <p class="description">
+                    Gestiona tu imperio en Arrakis con una arquitectura multi-agente avanzada.
+                    Cría criaturas exóticas, construye enclaves y domina el desierto.
+                </p>
+                <button class="play-button" id="playBtn">🎮 JUGAR AHORA</button>
+                <div class="status-message" id="statusMsg"></div>
+            </div>
+            <div class="scroll-hint">↓ SCROLL</div>
+        </section>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 py-16 space-y-16">
-
-        <!-- Project Overview -->
-        <section class="glass-panel rounded-2xl p-8">
-            <h2 class="text-3xl font-bold mb-6 text-center text-white">Visión General del Proyecto</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold text-emerald-400 mb-4">Arquitectura Multi-Agente</h3>
-                    <p class="text-slate-300 mb-4">
-                        El proyecto implementa una arquitectura jerárquica de agentes IA especializados:
-                    </p>
-                    <ul class="list-disc list-inside text-slate-300 space-y-2">
-                        <li><strong>Orquestador Principal:</strong> Coordina todo el sistema</li>
-                        <li><strong>Agente de Animales:</strong> Gestiona ciclo de vida de criaturas</li>
-                        <li><strong>Agente de Construcción:</strong> Maneja instalaciones y monetización</li>
-                        <li><strong>Agente de Mapas:</strong> Controla enclaves y territorio</li>
-                        <li><strong>Agente de Persistencia:</strong> Gestiona guardado y carga</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-cyan-400 mb-4">Características</h3>
-                    <ul class="list-disc list-inside text-slate-300 space-y-2">
-                        <li>Simulación mensual de recursos y población</li>
-                        <li>Sistema de enclaves con diferentes tipos</li>
-                        <li>Gestión de criaturas con necesidades biológicas</li>
-                        <li>Monetización basada en visitantes y atracciones</li>
-                        <li>Persistencia de estado en JSON</li>
-                        <li>Interfaz de consola interactiva</li>
-                    </ul>
+        <!-- Features Section -->
+        <section class="section fade-in-section">
+            <div class="section-content">
+                <h2>Características</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>🐾 Agentes de Animales</h3>
+                        <p>Gestión inteligente del ciclo de vida de criaturas exóticas con necesidades biológicas realistas.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🏗️ Construcción Dinámica</h3>
+                        <p>Construye instalaciones y gestiona monetización basada en visitantes y atracciones.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🗺️ Control Territorial</h3>
+                        <p>Expande tu imperio en Arrakis con gestión avanzada de enclaves y recursos.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>💾 Persistencia Inteligente</h3>
+                        <p>Guarda tu progreso automáticamente con sistema robusto de persistencia JSON.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📊 Multi-Agente IA</h3>
+                        <p>Arquitectura distribuida con agentes especializados que cooperan autónomamente.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🌐 Interfaz Web</h3>
+                        <p>Accede desde cualquier navegador con interfaz moderna y responsiva.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Architecture Diagram -->
-        <section class="glass-panel rounded-2xl p-8">
-            <h2 class="text-3xl font-bold mb-6 text-center text-white">Arquitectura del Sistema</h2>
-            <div class="text-center mb-6">
-                <a href="Documentacion/arquitectura-ai-zoo.html" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
-                    Ver Diagrama Interactivo de Arquitectura
-                </a>
-            </div>
-            <p class="text-slate-300 text-center">
-                Explora el diagrama detallado de la jerarquía de agentes y su funcionamiento.
-            </p>
-        </section>
-
-        <!-- Project Structure -->
-        <section class="glass-panel rounded-2xl p-8">
-            <h2 class="text-3xl font-bold mb-6 text-center text-white">Estructura del Proyecto</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-slate-800/50 rounded-lg p-4">
-                    <h3 class="text-lg font-semibold text-emerald-400 mb-2">DuneDominion.Shared</h3>
-                    <p class="text-sm text-slate-300">Modelos de datos y clase base Agent</p>
-                </div>
-                <div class="bg-slate-800/50 rounded-lg p-4">
-                    <h3 class="text-lg font-semibold text-cyan-400 mb-2">DuneDominion.Simulation</h3>
-                    <p class="text-sm text-slate-300">Agentes de simulación y orquestador</p>
-                </div>
-                <div class="bg-slate-800/50 rounded-lg p-4">
-                    <h3 class="text-lg font-semibold text-amber-400 mb-2">DuneDominion.Persistence</h3>
-                    <p class="text-sm text-slate-300">Agente de persistencia y orquestador</p>
-                </div>
-                <div class="bg-slate-800/50 rounded-lg p-4">
-                    <h3 class="text-lg font-semibold text-pink-400 mb-2">DuneDominion.Client</h3>
-                    <p class="text-sm text-slate-300">Orquestador principal e interfaz</p>
+        <!-- Architecture Section -->
+        <section class="section fade-in-section">
+            <div class="section-content">
+                <h2>Arquitectura</h2>
+                <p style="font-size: 1rem; margin-bottom: 2rem;">
+                    La arquitectura multi-agente de Dunita distribuye la lógica en agentes especializados
+                    que cooperan de manera autónoma bajo la supervisión de orquestadores jerárquicos.
+                </p>
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>🏛️ Orquestador Principal</h3>
+                        <p>Punto de entrada único que coordina simulación y persistencia.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>⚙️ Agentes Especializados</h3>
+                        <p>Cada agente maneja un dominio específico (animales, construcción, mapas).</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🚀 Despliegue Automático</h3>
+                        <p>DeploymentAgent maneja contenedores Docker con un click.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- How to Run -->
-        <section class="glass-panel rounded-2xl p-8">
-            <h2 class="text-3xl font-bold mb-6 text-center text-white">Cómo Ejecutar</h2>
-            <div class="bg-slate-800/50 rounded-lg p-6">
-                <h3 class="text-xl font-semibold text-cyan-400 mb-4">Requisitos</h3>
-                <ul class="list-disc list-inside text-slate-300 space-y-2 mb-6">
-                    <li>.NET 8.0 SDK</li>
-                    <li>Sistema operativo Linux/Windows/macOS</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold text-cyan-400 mb-4">Ejecución</h3>
-                <pre class="bg-slate-900 p-4 rounded text-green-400 overflow-x-auto"><code>cd DuneDominion.Client
-dotnet run</code></pre>
-
-                <p class="text-slate-300 mt-4">
-                    La aplicación se ejecuta en modo consola interactivo. Selecciona opciones del menú para gestionar tu parque.
+        <!-- Deployment Section -->
+        <section class="section fade-in-section">
+            <div class="section-content">
+                <h2>Despliegue</h2>
+                <p style="font-size: 1rem; margin-bottom: 2rem;">
+                    Dunita está completamente containerizado con Docker. Al hacer click en "JUGAR AHORA",
+                    el DeploymentAgent automáticamente levanta todos los servicios necesarios.
+                </p>
+                <p style="font-size: 1rem; color: #a0aec0;">
+                    <strong>Servicios:</strong><br>
+                    🌐 Aplicación Web en http://localhost:5000<br>
+                    📊 Documentación en http://localhost:8080
                 </p>
             </div>
         </section>
 
-        <!-- Documentation -->
-        <section class="glass-panel rounded-2xl p-8">
-            <h2 class="text-3xl font-bold mb-6 text-center text-white">Documentación</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="text-center">
-                    <a href="Documentacion/arquitectura-ai-zoo.html" class="block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors">
-                        📊 Arquitectura IA
-                    </a>
-                    <p class="text-slate-400 mt-2">Diagrama de agentes y jerarquía</p>
-                </div>
-                <div class="text-center">
-                    <a href="README.md" class="block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors">
-                        📖 README
-                    </a>
-                    <p class="text-slate-400 mt-2">Documentación completa del proyecto</p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-slate-800 py-8 mt-16">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-slate-400">
-                &copy; 2026 Dunita Project. Construido con .NET y arquitectura multi-agente.
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Dunita Project - Arquitectura Multi-Agente con IA Distribuida</p>
+            <p style="margin-top: 1rem; color: #4b5563;">
+                Inspirado en Dune | Construido con .NET, Docker y Three.js
             </p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
+    <script>
+        // Three.js Scene Setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('canvas'), antialias: true, alpha: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x0a0e27, 0.1);
+        camera.position.z = 100;
+
+        // Create sand particles (Arrakis dunes)
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particleCount = 500;
+        const positionArray = new Float32Array(particleCount * 3);
+
+        for (let i = 0; i < particleCount * 3; i += 3) {
+            positionArray[i] = (Math.random() - 0.5) * 400;
+            positionArray[i + 1] = (Math.random() - 0.5) * 400;
+            positionArray[i + 2] = (Math.random() - 0.5) * 400;
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positionArray, 3));
+
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 2,
+            color: 0xfbbf24,
+            opacity: 0.8,
+            sizeAttenuation: true
+        });
+
+        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particles);
+
+        // Add some geometric elements
+        const geometries = [];
+        for (let i = 0; i < 5; i++) {
+            const geom = new THREE.IcosahedronGeometry(20, 3);
+            const material = new THREE.MeshPhongMaterial({
+                color: new THREE.Color().setHSL(0.1 + i * 0.05, 0.7, 0.5),
+                wireframe: true,
+                emissive: 0xfbbf24,
+                emissiveIntensity: 0.3
+            });
+            const mesh = new THREE.Mesh(geom, material);
+            mesh.position.set(
+                (Math.random() - 0.5) * 300,
+                (Math.random() - 0.5) * 300,
+                (Math.random() - 0.5) * 300
+            );
+            mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
+            scene.add(mesh);
+            geometries.push(mesh);
+        }
+
+        // Lighting
+        const light = new THREE.PointLight(0xfbbf24, 1);
+        light.position.set(50, 50, 50);
+        scene.add(light);
+
+        const ambientLight = new THREE.AmbientLight(0x444444);
+        scene.add(ambientLight);
+
+        // Animation loop
+        let animationFrameId;
+        const animate = () => {
+            animationFrameId = requestAnimationFrame(animate);
+
+            // Rotate particles
+            particles.rotation.x += 0.0001;
+            particles.rotation.y += 0.0001;
+
+            // Rotate geometric elements
+            geometries.forEach(mesh => {
+                mesh.rotation.x += 0.0003;
+                mesh.rotation.y += 0.0005;
+                mesh.rotation.z += 0.0002;
+            });
+
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Scroll-based parallax
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            particles.position.y = scrollY * 0.05;
+            camera.position.z = 100 - scrollY * 0.1;
+        });
+
+        // Fade in sections on scroll
+        const observerOptions = { threshold: 0.2 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Play button functionality
+        const playBtn = document.getElementById('playBtn');
+        const statusMsg = document.getElementById('statusMsg');
+
+        playBtn.addEventListener('click', async () => {
+            playBtn.classList.add('loading');
+            playBtn.disabled = true;
+            statusMsg.innerHTML = '<span class="loading-spinner"></span> Levantando servicios...';
+
+            try {
+                const response = await fetch('/api/deploy', { method: 'POST' });
+                
+                if (response.ok) {
+                    statusMsg.innerHTML = '✅ Servicios levantados. Redirigiendo...';
+                    setTimeout(() => {
+                        window.location.href = 'http://localhost:5000';
+                    }, 2000);
+                } else {
+                    throw new Error(`Error: ${response.statusText}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                statusMsg.innerHTML = `<span class="error-message" style="color: #ff6b6b;">❌ Error: ${error.message}</span>`;
+                playBtn.classList.remove('loading');
+                playBtn.disabled = false;
+            }
+        });
+
+        // Disable cleanup on unload
+        window.addEventListener('beforeunload', () => {
+            cancelAnimationFrame(animationFrameId);
+        });
+    </script>
 </body>
 </html>
