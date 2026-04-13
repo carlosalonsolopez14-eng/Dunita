@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using DuneDominion.Persistence;
+using DuneDominion.Simulation;
+using DuneDominion.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,12 @@ builder.Services.AddDbContext<DunitaDbContext>(options =>
 builder.Services.AddScoped<DatabasePersistenceService>();
 builder.Services.AddScoped<PersistenceAgent>();
 builder.Services.AddScoped<PersistenceOrchestrator>();
+
+// Registrar agentes de simulación
+builder.Services.AddScoped<AnimalAgent>();
+builder.Services.AddScoped<ConstructionAgent>();
+builder.Services.AddScoped<MapAgent>();
+builder.Services.AddScoped<SimulationOrchestrator>();
 
 // Registrar orquestradores
 builder.Services.AddScoped<MainOrchestrator>();

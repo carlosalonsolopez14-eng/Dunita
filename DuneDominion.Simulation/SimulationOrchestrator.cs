@@ -5,9 +5,16 @@ namespace DuneDominion.Simulation
 {
     public class SimulationOrchestrator : Agent
     {
-        private readonly AnimalAgent _animalAgent = new AnimalAgent();
-        private readonly ConstructionAgent _constructionAgent = new ConstructionAgent();
-        private readonly MapAgent _mapAgent = new MapAgent();
+        private readonly AnimalAgent _animalAgent;
+        private readonly ConstructionAgent _constructionAgent;
+        private readonly MapAgent _mapAgent;
+
+        public SimulationOrchestrator(AnimalAgent animalAgent, ConstructionAgent constructionAgent, MapAgent mapAgent)
+        {
+            _animalAgent = animalAgent;
+            _constructionAgent = constructionAgent;
+            _mapAgent = mapAgent;
+        }
 
         public override async Task ExecuteAsync(Partida partida)
         {
