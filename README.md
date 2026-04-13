@@ -109,7 +109,63 @@ python3 -m http.server 8000
 ```
 
 Visita `http://localhost:8000` para ver la documentación.
+## 🚂 Despliegue en Railway
 
+Railway ofrece despliegue automático desde GitHub con soporte nativo para Docker Compose.
+
+### Configuración en Railway
+
+1. **Crear cuenta**: Ve a [railway.app](https://railway.app) y regístrate
+2. **Conectar repositorio**: 
+   - Haz click en "New Project"
+   - Selecciona "Deploy from GitHub repo"
+   - Busca y conecta `carlosalonsolopez14-eng/Dunita`
+3. **Configuración automática**: Railway detectará `docker-compose.yml` y desplegará los servicios
+4. **Variables de entorno** (opcional):
+   - `ASPNETCORE_ENVIRONMENT=Production`
+   - `ASPNETCORE_URLS=http://0.0.0.0:5000`
+
+### Servicios Desplegados
+
+- **dunita-app**: Aplicación principal en `https://dunita-app.railway.app`
+- **dunita-docs**: Documentación en `https://dunita-docs.railway.app`
+
+### Actualizaciones Automáticas
+
+Cada push al branch `main` activará un nuevo despliegue automáticamente.
+
+### URLs de Producción
+
+Después del despliegue, Railway asignará URLs únicas a cada servicio:
+
+- **Aplicación principal**: `https://dunita-app-production-xxxx.railway.app`
+- **Documentación**: `https://dunita-docs-production-xxxx.railway.app`
+
+**Importante**: Actualiza las URLs en `DuneDominion.Client/wwwroot/index.html`:
+- Línea con `window.location.href = 'http://localhost:3000';` → cambia a la URL de la app
+- Línea con `🌐 Aplicación Web en http://localhost:5000` → cambia a la URL de la app
+- Línea con `🌐 Documentación en http://localhost:8080` → cambia a la URL de docs
+
+### Monitoreo y Logs
+
+Railway proporciona dashboard completo para:
+- Ver logs en tiempo real
+- Monitorear uso de recursos
+- Gestionar variables de entorno
+- Escalar servicios
+
+### Comandos Útiles en Railway
+
+```bash
+# Ver logs del servicio
+railway logs
+
+# Conectar a base de datos (si agregas)
+railway connect
+
+# Variables de entorno
+railway variables set ASPNETCORE_ENVIRONMENT=Production
+```
 ## � Docker y Despliegue
 
 ### DeploymentAgent

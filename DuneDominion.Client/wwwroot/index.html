@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUNITA - Dune Dominion Multi-Agent Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;700&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <style>
+        :root {
+            --primary: #ffb876;
+            --secondary: #e9c176;
+            --neutral: #141312;
+            --surface: #141312;
+            --surface-container-low: #1c1b1a;
+            --surface-container: #201f1e;
+            --surface-container-high: #2b2a29;
+            --on-surface: #ffb876;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--surface);
+            color: var(--on-surface);
+            overflow-x: hidden;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><filter id="noise"><feTurbulence baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/></filter><rect width="100%25" height="100%25" filter="url(%23noise)" opacity="0.03"/></svg>');
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        #canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero {
+            min-h: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: var(--surface);
+        }
+
+        .hero-content {
+            opacity: 0;
+            animation: fadeInUp 1.2s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Newsreader', serif;
+            font-size: clamp(3.5rem, 10vw, 8rem);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: var(--on-surface);
+            margin-bottom: 2rem;
+        }
+
+        .play-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--primary);
+            color: var(--surface);
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .play-button:hover {
+            background: var(--secondary);
+            box-shadow: inset 0 0 0 2px var(--primary);
+        }
+
+        .play-button:active {
+            transform: scale(0.98);
+        }
+
+        .play-button.loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .status-message {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            min-height: 1.5rem;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: var(--primary);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .section {
+            min-h: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: var(--surface-container-low);
+        }
+
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-family: 'Newsreader', serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: var(--on-surface);
+            margin-bottom: 1rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            background: var(--surface-container);
+            border-radius: 0;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: var(--surface-container-high);
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-family: 'Space Grotesk', monospace;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+        }
+
+        .fade-in-section.active {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--secondary);
+            background: var(--surface-container);
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 184, 118, 0.3);
+            border-top-color: var(--primary);
+            border-radius: 0;
+            animation: spin 0.8s linear infinite;
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <div class="content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>DUNITA</h1>
+                <p class="subtitle">Dune Dominion Multi-Agent Simulator</p>
+                <p class="description">
+                    Gestiona tu imperio en Arrakis con una arquitectura multi-agente avanzada.
+                    Cría criaturas exóticas, construye enclaves y domina el desierto.
+                </p>
+                <button class="play-button" id="playBtn">🎮 JUGAR AHORA</button>
+                <div class="status-message" id="statusMsg"></div>
+            </div>
+            <div class="scroll-hint">↓ SCROLL</div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section fade-in-section">
+            <div class="section-content">
+                <h2>Características</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>🐾 Agentes de Animales</h3>
+                        <p>Gestión inteligente del ciclo de vida de criaturas exóticas con necesidades biológicas realistas.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🏗️ Construcción Dinámica</h3>
+                        <p>Construye instalaciones y gestiona monetización basada en visitantes y atracciones.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🗺️ Control Territorial</h3>
+                        <p>Expande tu imperio en Arrakis con gestión avanzada de enclaves y recursos.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>💾 Persistencia Inteligente</h3>
+                        <p>Guarda tu progreso automáticamente con sistema robusto de persistencia JSON.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📊 Multi-Agente IA</h3>
+                        <p>Arquitectura distribuida con agentes especializados que cooperan autónomamente.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🌐 Interfaz Web</h3>
+                        <p>Accede desde cualquier navegador con interfaz moderna y responsiva.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture Section -->
+        <section class="section fade-in-section">
+            <div class="section-content">
+                <h2>Arquitectura</h2>
+                <p style="font-size: 1rem; margin-bottom: 2rem;">
+                    La arquitectura multi-agente de Dunita distribuye la lógica en agentes especializados
+                    que cooperan de manera autónoma bajo la supervisión de orquestadores jerárquicos.
+                </p>
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>🏛️ Orquestador Principal</h3>
+                        <p>Punto de entrada único que coordina simulación y persistencia.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>⚙️ Agentes Especializados</h3>
+                        <p>Cada agente maneja un dominio específico (animales, construcción, mapas).</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🚀 Despliegue Automático</h3>
+                        <p>DeploymentAgent maneja contenedores Docker con un click.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deployment Section -->
+        <section class="section fade-in-section">
+            <div class="section-content">
+                <h2>Despliegue</h2>
+                <p style="font-size: 1rem; margin-bottom: 2rem;">
+                    Dunita está completamente containerizado con Docker. Al hacer click en "JUGAR AHORA",
+                    el DeploymentAgent automáticamente levanta todos los servicios necesarios.
+                </p>
+                <p style="font-size: 1rem; color: var(--secondary);">
+                    <strong>Servicios:</strong><br>
+                    🌐 Aplicación Web en http://localhost:3000<br>
+                    📊 Documentación en http://localhost:8080
+                </p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Dunita Project - Arquitectura Multi-Agente con IA Distribuida</p>
+            <p style="margin-top: 1rem; color: var(--secondary);">
+                Inspirado en Dune | Construido con .NET, Docker y Three.js
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Three.js Scene Setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('canvas'), antialias: true, alpha: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x141312, 0.1);
+        camera.position.z = 100;
+
+        // Create sand particles (Arrakis dunes)
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particleCount = 500;
+        const positionArray = new Float32Array(particleCount * 3);
+
+        for (let i = 0; i < particleCount * 3; i += 3) {
+            positionArray[i] = (Math.random() - 0.5) * 400;
+            positionArray[i + 1] = (Math.random() - 0.5) * 400;
+            positionArray[i + 2] = (Math.random() - 0.5) * 400;
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positionArray, 3));
+
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 2,
+            color: 0xffb876,
+            opacity: 0.8,
+            sizeAttenuation: true
+        });
+
+        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particles);
+
+        // Add some geometric elements
+        const geometries = [];
+        for (let i = 0; i < 5; i++) {
+            const geom = new THREE.IcosahedronGeometry(20, 3);
+            const material = new THREE.MeshPhongMaterial({
+                color: new THREE.Color().setHSL(0.1 + i * 0.05, 0.7, 0.5),
+                wireframe: true,
+                emissive: 0xffb876,
+                emissiveIntensity: 0.3
+            });
+            const mesh = new THREE.Mesh(geom, material);
+            mesh.position.set(
+                (Math.random() - 0.5) * 300,
+                (Math.random() - 0.5) * 300,
+                (Math.random() - 0.5) * 300
+            );
+            mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
+            scene.add(mesh);
+            geometries.push(mesh);
+        }
+
+        // Lighting
+        const light = new THREE.PointLight(0xffb876, 1);
+        light.position.set(50, 50, 50);
+        scene.add(light);
+
+        const ambientLight = new THREE.AmbientLight(0x444444);
+        scene.add(ambientLight);
+
+        // Animation loop
+        let animationFrameId;
+        const animate = () => {
+            animationFrameId = requestAnimationFrame(animate);
+
+            // Rotate particles
+            particles.rotation.x += 0.0001;
+            particles.rotation.y += 0.0001;
+
+            // Rotate geometric elements
+            geometries.forEach(mesh => {
+                mesh.rotation.x += 0.0003;
+                mesh.rotation.y += 0.0005;
+                mesh.rotation.z += 0.0002;
+            });
+
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Scroll-based parallax
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            particles.position.y = scrollY * 0.05;
+            camera.position.z = 100 - scrollY * 0.1;
+        });
+
+        // Fade in sections on scroll
+        const observerOptions = { threshold: 0.2 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Play button functionality
+        const playBtn = document.getElementById('playBtn');
+        const statusMsg = document.getElementById('statusMsg');
+
+        playBtn.addEventListener('click', async () => {
+            playBtn.classList.add('loading');
+            playBtn.disabled = true;
+            statusMsg.innerHTML = '<span class="loading-spinner"></span> Levantando servicios...';
+
+            try {
+                const response = await fetch('/api/deploy', { method: 'POST' });
+                
+                if (response.ok) {
+                    statusMsg.innerHTML = '✅ Servicios levantados. Redirigiendo...';
+                    setTimeout(() => {
+                        window.location.href = 'http://localhost:3000';
+                    }, 2000);
+                } else {
+                    throw new Error(`Error: ${response.statusText}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                statusMsg.innerHTML = `<span class="error-message" style="color: #ff6b6b;">❌ Error: ${error.message}</span>`;
+                playBtn.classList.remove('loading');
+                playBtn.disabled = false;
+            }
+        });
+
+        // Disable cleanup on unload
+        window.addEventListener('beforeunload', () => {
+            cancelAnimationFrame(animationFrameId);
+        });
+    </script>
+</body>
+</html>
