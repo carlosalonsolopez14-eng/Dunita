@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DuneDominion.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8eabbdc0428196e41801edf709179f3a1ffaab3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff2cfed9b3efb1a4d388e99c5417278158900b91")]
 [assembly: System.Reflection.AssemblyProductAttribute("DuneDominion.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DuneDominion.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
