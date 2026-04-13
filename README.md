@@ -46,13 +46,56 @@ El proyecto destaca por su arquitectura multi-agente, donde cada aspecto del sis
 
 ## 🚀 Instalación y Ejecución
 
-### Prerrequisitos
+### Opción 1: Con Docker (Recomendado - Automático)
 
+La forma más rápida y sencilla de ejecutar Dunita.
+
+#### Prerrequisitos
+- Docker Desktop ([Descargar aquí](https://www.docker.com/products/docker-desktop))
+
+#### Ejecución
+
+**En Linux/macOS:**
+```bash
+chmod +x start.sh
+./start.sh
+```
+
+**En Windows:**
+```bash
+start.bat
+```
+
+El script automáticamente:
+- Verifica que Docker esté instalado
+- Construye las imágenes necesarias
+- Levanta todos los servicios
+- Abre el navegador en `http://localhost:5000`
+
+### Opción 2: Con Docker Compose (Manual)
+
+Si prefieres controlar manualmente los contenedores:
+
+```bash
+# Levanta los servicios
+docker-compose up -d
+
+# Ver logs en tiempo real
+docker-compose logs -f
+
+# Detener servicios
+docker-compose down
+```
+
+### Opción 3: Ejecución Local (Sin Docker)
+
+Para desarrollo local sin contenedores.
+
+#### Prerrequisitos
 - .NET 8.0 SDK
 - Sistema operativo compatible (Linux/Windows/macOS)
 
-### Ejecutar la Aplicación
-
+#### Ejecución
 ```bash
 cd DuneDominion.Client
 dotnet run
@@ -67,7 +110,43 @@ python3 -m http.server 8000
 
 Visita `http://localhost:8000` para ver la documentación.
 
-## 📊 Documentación
+## � Docker y Despliegue
+
+### DeploymentAgent
+
+Se incluye un nuevo agente especializado (`DuneDominion.Deployment`) que orquesta el despliegue de la aplicación completa en contenedores Docker.
+
+#### Estructura Docker
+
+```
+dunita-app       → Aplicación web ASP.NET Core (puerto 5000)
+dunita-docs      → Servidor de documentación (puerto 8080)
+```
+
+#### Servicios Incluidos
+
+- **Aplicación Web**: Interfaz interactiva del juego
+- **Documentación**: Diagrama de arquitectura y guías
+- **Volúmenes**: Persistencia de partidas guardadas
+- **Health Checks**: Verificación automática del estado
+
+#### Comandos Útiles
+
+```bash
+# Ver estado de servicios
+docker-compose ps
+
+# Ver logs en tiempo real
+docker-compose logs -f dunita-app
+
+# Reconstruir las imágenes
+docker-compose build --no-cache
+
+# Ejecutar comando en contenedor
+docker-compose exec dunita-app bash
+```
+
+## �📊 Documentación
 
 - **[Arquitectura IA](Documentacion/arquitectura-ai-zoo.html)**: Diagrama interactivo de la jerarquía de agentes
 - **[Homepage Web](index.html)**: Página principal con visión general del proyecto
@@ -105,6 +184,22 @@ dotnet test
 ### Arquitectura de Agentes
 
 Cada agente implementa la interfaz `Agent` con el método `ExecuteAsync(Partida partida)`. Los orquestadores coordinan la ejecución de agentes especializados, permitiendo una separación clara de responsabilidades y extensibilidad.
+
+#### DeploymentAgent
+
+El nuevo `DeploymentAgent` (en `DuneDominion.Deployment`) gestiona el ciclo de vida de los contenedores Docker:
+
+- **StartServicesAsync()**: Levanta todos los servicios
+- **StopServicesAsync()**: Detiene los servicios
+- **CheckStatusAsync()**: Verifica el estado
+- **OpenBrowser()**: Abre la aplicación en el navegador
+
+Ejemplo de uso:
+```csharp
+var deploymentAgent = new DeploymentAgent("docker-compose.yml");
+await deploymentAgent.StartServicesAsync();
+deploymentAgent.OpenBrowser("http://localhost:5000");
+```
 
 ## 🤝 Contribuir
 

@@ -1,0 +1,42 @@
+# Archivos de compilación y objetos
+bin/
+obj/
+*.o
+
+# Archivos de publicación .NET
+publish/
+.vs/
+.vscode/
+
+# Archivos de datos
+estado_partida.json
+*.db
+*.sqlite
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Entorno
+.env
+.env.local
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Temporales
+tmp/
+temp/
+.temp
+.cache
