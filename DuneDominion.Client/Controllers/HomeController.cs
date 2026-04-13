@@ -10,7 +10,7 @@ namespace DuneDominion.Client.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return File("index.html", "text/html");
         }
 
         [HttpPost]
